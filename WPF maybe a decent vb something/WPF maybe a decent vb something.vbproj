@@ -125,6 +125,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\Users.vb" />
     <Compile Include="Repositories\UsersRepository.vb" />
+    <Compile Include="View\Admin\Dashboard.xaml.vb">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.vb">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Admin\Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,7 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="View\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\login-bg.jpg" />

@@ -10,7 +10,7 @@
     Private Sub btnClose_Click(sender As Object, e As RoutedEventArgs)
         Me.Close()
     End Sub
-    Private Sub btnLogin_Click(sender As Object, e As RoutedEventArgs)
+    Public Sub btnLogin_Click(sender As Object, e As RoutedEventArgs)
         Dim username As String = txtUser.Text
         Dim password As String = txtPass.Password
         If String.IsNullOrWhiteSpace(username) OrElse String.IsNullOrWhiteSpace(password) Then
@@ -20,7 +20,7 @@
         End If
 
         If Users.ValidateCredentials(username, password) Then
-            MsgBox("Hello")
+            MessageBox.Show("Login successful.")
 
 
         Else
@@ -29,5 +29,12 @@
             txtError.Visibility = Visibility.Visible
         End If
     End Sub
+
+    Private Sub TxtPass_KeyDown(sender As Object, e As KeyEventArgs)
+        If e.Key = Key.Enter Then
+            btnLogin_Click(btnLogin, New RoutedEventArgs())
+        End If
+    End Sub
+
 
 End Class
