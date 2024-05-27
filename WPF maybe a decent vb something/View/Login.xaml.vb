@@ -20,7 +20,9 @@
         End If
 
         If Users.ValidateCredentials(username, password) Then
-            MsgBox("Hello")
+            Dim MainDashboard = New MainDashboard
+            MainDashboard.Show()
+            Me.Close()
 
 
         Else
