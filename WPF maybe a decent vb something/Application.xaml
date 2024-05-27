@@ -4,6 +4,13 @@
     xmlns:local="clr-namespace:WPF_maybe_a_decent_vb_something"
     StartupUri="View\Login.xaml">
     <Application.Resources>
-        
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/ColorPalette.xaml"/>
+                <ResourceDictionary Source="Themes/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

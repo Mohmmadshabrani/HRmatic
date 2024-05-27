@@ -1,6 +1,6 @@
 ﻿Public Class Login
     Public Sub Mouse_down(sender As Object, e As MouseButtonEventArgs)
-        Dim window As Window = Window.GetWindow(sender)
+        Dim window As Window = window.GetWindow(sender)
         window.DragMove()
     End Sub
     Private Sub btnMinimize_Click(sender As Object, e As RoutedEventArgs)
@@ -20,7 +20,9 @@
         End If
 
         If Users.ValidateCredentials(username, password) Then
-            MessageBox.Show("Login successful.")
+            Dim MainDashboard = New MainDashboard
+            MainDashboard.Show()
+            Me.Close()
 
 
         Else
