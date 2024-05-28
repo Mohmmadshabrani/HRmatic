@@ -30,10 +30,10 @@
             MainDashboard.Show()
             Me.Close()
         Else
-            MsgBox(user.isAdmin())
-            'Dim employeeDashboard = New EmployeeDashboard
-            'employeeDashboard.Show()
-            'Me.Close()
+
+            Dim employeeDashboard = New EmpDashboard(user)
+            employeeDashboard.Show()
+            Me.Close()
         End If
     End Sub
 

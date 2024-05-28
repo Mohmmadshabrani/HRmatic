@@ -2,7 +2,7 @@
 Imports System.Windows.Interop
 
 Public Class EmpDashboard
-
+    Private user As Users
     Public Shared Function SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer) As IntPtr
         End Function
 

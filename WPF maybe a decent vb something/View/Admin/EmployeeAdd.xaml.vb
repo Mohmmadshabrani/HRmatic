@@ -24,7 +24,7 @@ Public Class EmployeeAdd
         }
 
 
-        Dim success As Boolean = userRepository.Create(newUser)
+        Dim success As Boolean = Users.Create(newUser)
 
         If success Then
             MessageBox.Show("User added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information)

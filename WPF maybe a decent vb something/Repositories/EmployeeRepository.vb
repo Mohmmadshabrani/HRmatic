@@ -51,7 +51,7 @@ Public Class EmployeeRepository
                                 .DateResigned = reader("DateResigned"),
                                 .DateHired = reader("DateHired"),
                                 .EmployeeID = reader("ID"),
-                            }
+                           }
                         Else
                             Return Nothing
                         End If
