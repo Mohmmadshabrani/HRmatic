@@ -31,7 +31,7 @@
             Me.Close()
         Else
 
-            Dim employeeDashboard = New EmpDashboard(user)
+            Dim employeeDashboard As New EmpDashboard(user.ID)
             employeeDashboard.Show()
             Me.Close()
         End If
