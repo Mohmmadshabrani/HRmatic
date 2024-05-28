@@ -154,5 +154,31 @@ Public Class UserRepository
         End Using
         Return users
     End Function
+    ' userRepo.SearchUsers
+    Public Function SearchUsers(searchValue As String) As List(Of Users)
+        Dim users As New List(Of Users)()
+        Using conn As New MySqlConnection(connectionString)
+            Try
+                conn.Open()
+                Dim query As String = "SELECT * FROM Users WHERE Username LIKE @SearchValue OR Email LIKE @SearchValue"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@SearchValue", "%" & searchValue & "%")
+                    Using reader As MySqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            users.Add(New Users() With {
+                                .ID = reader("ID"),
+                                .Username = reader("Username"),
+                                .Email = reader("Email"),
+                                .IsActive = reader("IsActive")
+                            })
+                        End While
+                    End Using
+                End Using
+            Catch ex As Exception
+                ' Handle exceptions
+            End Try
+        End Using
+        Return users
+    End Function
 
 End Class

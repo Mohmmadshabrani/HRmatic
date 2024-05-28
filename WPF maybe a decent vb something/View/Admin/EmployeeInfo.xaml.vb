@@ -1,0 +1,3 @@
+﻿Class EmployeeInfo
+
+End Class
