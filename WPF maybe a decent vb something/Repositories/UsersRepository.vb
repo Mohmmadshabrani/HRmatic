@@ -142,7 +142,6 @@ Public Class UserRepository
                             users.Add(New Users() With {
                                 .ID = reader("ID"),
                                 .Username = reader("Username"),
-                                .Password = reader("Password"),
                                 .Email = reader("Email"),
                                 .IsActive = reader("IsActive")
                             })
@@ -155,4 +154,5 @@ Public Class UserRepository
         End Using
         Return users
     End Function
+
 End Class

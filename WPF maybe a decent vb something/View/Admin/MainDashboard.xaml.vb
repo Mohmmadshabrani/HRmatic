@@ -23,5 +23,18 @@ Public Class MainDashboard
     Private Sub btnMinimize_Click(sender As Object, e As RoutedEventArgs)
         Me.WindowState = WindowState.Minimized
     End Sub
+    Private Sub ShowHomeView(sender As Object, e As RoutedEventArgs)
+        Dim homeView As New DashboardView()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(homeView)
+    End Sub
+
+    Private Sub ShowEmployeeView(sender As Object, e As RoutedEventArgs)
+        Dim employeeView As New EmployeeView()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(employeeView)
+    End Sub
+
+
 
 End Class

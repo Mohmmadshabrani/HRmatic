@@ -40,7 +40,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color9}"
                                  IsChecked="True"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Click="ShowHomeView">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
@@ -49,7 +49,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color7}"
                                  IsChecked="False"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Click="ShowEmployeeView">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Employees" Style="{StaticResource menuButtonText}"/>
@@ -131,6 +131,10 @@
                         </Button>
 
                     </StackPanel>
+
+                    <Grid x:Name="ContentGrid" Grid.Row="2"
+                            Margin="25">
+                    </Grid>
                     
                 </Grid>
 

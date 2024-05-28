@@ -9,8 +9,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/ColorPalette.xaml"/>
                 <ResourceDictionary Source="Themes/Buttons.xaml"/>
+                <ResourceDictionary Source="Themes/DataGrid.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+
 
     </Application.Resources>
 </Application>
