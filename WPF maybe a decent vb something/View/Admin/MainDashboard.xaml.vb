@@ -5,6 +5,7 @@ Public Class MainDashboard
     <DllImport("user32.dll")>
     Public Shared Function SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer) As IntPtr
     End Function
+
     Private Sub pnl_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs)
         Dim helper As New WindowInteropHelper(Me)
         SendMessage(helper.Handle, 161, 2, 0)
@@ -34,6 +35,13 @@ Public Class MainDashboard
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(employeeView)
     End Sub
+
+    Private Sub ShowDashboardView(sender As Object, e As RoutedEventArgs)
+        Dim dashboardView As New DashboardView()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(dashboardView)
+    End Sub
+
 
 
 
