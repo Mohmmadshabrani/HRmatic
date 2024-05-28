@@ -28,9 +28,9 @@
         <TextBlock x:Name="txtTimer" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button x:Name="StartButton" Content="Start Timer"   Height="30" Width="70" Click="StartButton_Click" Margin="5 , 30 , 0 ,30"/>
-            <Button x:Name="PauseButton" Content="Pause Timer"  Height="30" Width="70" Click="PauseButton_Click" Margin="5 , 30 , 0 ,30"/>
-            <Button x:Name="StopButton" Content="Stop Timer"   Height="30" Width="70" Click="StopButton_Click" Margin="5 , 30 , 0 ,30"/>
+            <Button x:Name="StartButton" Content="Start Timer" Style="{StaticResource pillButtonStyle}"  Click="StartButton_Click" Margin="5 , 30 , 0 ,30"/>
+            <Button x:Name="PauseButton" Content="Pause Timer" Style="{StaticResource pillButtonStyle}" Click="PauseButton_Click" Margin="5 , 30 , 0 ,30"/>
+            <Button x:Name="StopButton" Content="Stop Timer" Style="{StaticResource pillButtonStyle}"   Click="StopButton_Click" Margin="5 , 30 , 0 ,30"/>
         </StackPanel>
     </Grid>
 </UserControl>

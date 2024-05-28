@@ -198,5 +198,25 @@ Public Class UserRepository
         End Using
         Return users
     End Function
+    Public Function SaveTimerRecord(empId As Integer, timestamp As DateTime, status As String) As Boolean
+        Using conn As New MySqlConnection(connectionString)
+            Try
+                conn.Open()
+                Dim query As String = "INSERT INTO employee_record (emp_id, timestamp, status) VALUES (@emp_id, @timestamp, @status)"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@emp_id", empId)
+
+                    cmd.Parameters.AddWithValue("@timestamp", timestamp)
+                    cmd.Parameters.AddWithValue("@status", status)
+                    cmd.ExecuteNonQuery()
+                End Using
+                Return True
+            Catch ex As Exception
+                ' Handle exceptions
+                Return False
+            End Try
+        End Using
+    End Function
+
 
 End Class
