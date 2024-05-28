@@ -39,7 +39,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color9}"
                                  IsChecked="True"
-                                 Click="ShowHomeView">
+                                 Click="ShowDashboardView">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>

@@ -6,20 +6,26 @@
     <Color x:Key="secondary-1">#10365f</Color>
     <Color x:Key="secondary-2">#3373fc</Color>
     <SolidColorBrush x:Key="danger">#dc3545</SolidColorBrush>
+    <SolidColorBrush x:Key="pal-danger">#9e4d55</SolidColorBrush>
     <SolidColorBrush x:Key="danger-shadow">#c82333</SolidColorBrush>
     <SolidColorBrush x:Key="success">#28a745</SolidColorBrush>
+    <SolidColorBrush x:Key="pal-success">#519962</SolidColorBrush>
     <SolidColorBrush x:Key="success-shadow">#218838</SolidColorBrush>
 
     <SolidColorBrush x:Key="warning">#ffc107</SolidColorBrush>
+    <SolidColorBrush x:Key="pal-warning">#e6c973</SolidColorBrush>
     <SolidColorBrush x:Key="warning-shadow">#e0a800</SolidColorBrush>
 
     <SolidColorBrush x:Key="info">#17a2b8</SolidColorBrush>
+    <SolidColorBrush x:Key="pal-info">#5aabb8</SolidColorBrush>
     <SolidColorBrush x:Key="info-shadow">#138496</SolidColorBrush>
 
     <SolidColorBrush x:Key="primary">#007bff</SolidColorBrush>
+    <SolidColorBrush x:Key="pal-primary">#4f76a1</SolidColorBrush>
     <SolidColorBrush x:Key="primary-shadow">#0056b3</SolidColorBrush>
 
     <SolidColorBrush x:Key="secondary">#6c757d</SolidColorBrush>
+    <SolidColorBrush x:Key="pal-secondary">#ddd</SolidColorBrush>
     <SolidColorBrush x:Key="secondary-shadow">#545b62</SolidColorBrush>
 
     <SolidColorBrush x:Key="light">#f8f9fa</SolidColorBrush>
