@@ -10,15 +10,17 @@
     <Color x:Key="winBorder">#fff</Color>
     <!--Color Palette-->
     <SolidColorBrush x:Key="border-primary" Color="#fff"/>
+    <SolidColorBrush x:Key="brush-primary" Color="#002e52"/>
+    <SolidColorBrush x:Key="brush-secondary" Color="#10365f"/>
     <SolidColorBrush x:Key="border-defult" Color="#ded9d9"/>
-    <SolidColorBrush x:Key="color1" Color="#858be2"/>
-    <SolidColorBrush x:Key="color2" Color="#4d73fd"/>
-    <SolidColorBrush x:Key="color3" Color="#4ADAEC"/>
-    <SolidColorBrush x:Key="color4" Color="#9353fb"/>
-    <SolidColorBrush x:Key="color5" Color="#7ed4fc"/>
-    <SolidColorBrush x:Key="color6" Color="#FFC047"/>
-    <SolidColorBrush x:Key="color7" Color="#EF6C96"/>
-    <SolidColorBrush x:Key="color8" Color="#78A3FC"/>
+    <SolidColorBrush x:Key="color1" Color="#ef626c"/>
+    <SolidColorBrush x:Key="color2" Color="#ff8337"/>
+    <SolidColorBrush x:Key="color3" Color="#ffe272"/>
+    <SolidColorBrush x:Key="color4" Color="#9de16f"/>
+    <SolidColorBrush x:Key="color5" Color="#36d8b7"/>
+    <SolidColorBrush x:Key="color6" Color="#53afff"/>
+    <SolidColorBrush x:Key="color7" Color="#de6fff"/>
+    <SolidColorBrush x:Key="color8" Color="#ff74bc "/>
     <SolidColorBrush x:Key="color9" Color="#07F3C0"/>
     <SolidColorBrush x:Key="color10" Color="#FBA1AA"/>
     <!--Gradient Colors-->
@@ -36,7 +38,7 @@
     <!--Panel Colors-->
     <SolidColorBrush x:Key="panelColor" Color="#200F53"/>
     <SolidColorBrush x:Key="panelOverColor" Color="#281269"/>
-    <SolidColorBrush x:Key="panelActiveColor" Color="#2B1372"/>
+    <SolidColorBrush x:Key="panelActiveColor" Color="#10365f"/>
     <!--Button Colors-->
     <SolidColorBrush x:Key="btn-bg-primary">#36b1eb</SolidColorBrush>
     <SolidColorBrush x:Key="btn-bg-secondary">#2e98c9</SolidColorBrush>
