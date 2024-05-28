@@ -69,18 +69,19 @@ Public Class EmployeeRepository
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim query As String = "UPDATE Users SET Username = @Username, Password = @Password, Email = @Email, IsActive = @IsActive WHERE ID = @ID"
+                Dim query As String = "UPDATE Employee SET FirstName = @FirstName, LastName = @LastName, Salary = @Salary, Department = @Department, DateResigned = @DateResigned, DateHired = @DateHired WHERE ID = @ID"
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@ID", emp.ID)
-                    cmd.Parameters.AddWithValue("@Username", emp.Username)
-                    cmd.Parameters.AddWithValue("@Password", emp.Password)
-                    cmd.Parameters.AddWithValue("@Email", emp.Email)
-                    cmd.Parameters.AddWithValue("@IsActive", emp.IsActive)
+                    cmd.Parameters.AddWithValue("@ID", emp.EmployeeID)
+                    cmd.Parameters.AddWithValue("@FirstName", emp.FirstName)
+                    cmd.Parameters.AddWithValue("@LastName", emp.LastName)
+                    cmd.Parameters.AddWithValue("@Salary", emp.Salary)
+                    cmd.Parameters.AddWithValue("@Department", emp.Department)
+                    cmd.Parameters.AddWithValue("@DateResigned", emp.DateResigned)
+                    cmd.Parameters.AddWithValue("@DateHired", emp.DateHired)
                     cmd.ExecuteNonQuery()
                 End Using
                 Return True
             Catch ex As Exception
-                ' Handle exceptions
                 Return False
             End Try
         End Using
@@ -91,16 +92,16 @@ Public Class EmployeeRepository
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim query As String = "DELETE FROM Users WHERE ID = @ID"
+                Dim query As String = "DELETE FROM Employee WHERE ID = @ID"
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@ID", ID)
                     cmd.ExecuteNonQuery()
                 End Using
                 Return True
             Catch ex As Exception
-                ' Handle exceptions
                 Return False
             End Try
+
         End Using
     End Function
 
