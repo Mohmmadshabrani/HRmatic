@@ -95,7 +95,6 @@ Public Class Users
 
 
     Public Function isAdmin() As Boolean
-        MsgBox(Me.Role)
         If Me.Role = "admin" Then
             Return True
         End If

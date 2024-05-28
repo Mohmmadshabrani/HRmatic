@@ -30,8 +30,7 @@
             MainDashboard.Show()
             Me.Close()
         Else
-
-            Dim employeeDashboard = New EmpDashboard(user)
+            Dim employeeDashboard = New EmpDashboard()
             employeeDashboard.Show()
             Me.Close()
         End If

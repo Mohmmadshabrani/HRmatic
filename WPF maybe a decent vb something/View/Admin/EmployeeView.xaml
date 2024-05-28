@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
                xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              d:DesignHeight="450" d:DesignWidth="800">
-  
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -27,32 +27,30 @@
                         Grid.Column="0">
                 <fa:IconImage Icon="Search" Height="20" Width="20" Foreground="{StaticResource plainTextColor3}"/>
                 <TextBox x:Name="SearchBox"   
-         Text="Search..."   
-         FontSize="13"
-         Height="24"
-         Width="300"
-         Background="Transparent"
-         FontWeight="Medium"
-         FontFamily="Montserrat"                            
-         Foreground="{StaticResource plainTextColor3}"
-         CaretBrush="{StaticResource plainTextColor3}"
-         BorderBrush="{StaticResource plainTextColor3}"
-         BorderThickness="0,0,0,1"                             
-         VerticalContentAlignment="Center"
-         Margin="5,5,0,0"
-         
-         />
+                         Text="Search..."   
+                         FontSize="13"
+                         Height="24"
+                         Width="300"
+                         Background="Transparent"
+                         FontWeight="Medium"
+                         FontFamily="Montserrat"                            
+                         Foreground="{StaticResource plainTextColor3}"
+                         CaretBrush="{StaticResource plainTextColor3}"
+                         BorderBrush="{StaticResource plainTextColor3}"
+                         BorderThickness="0,0,0,1"                             
+                         VerticalContentAlignment="Center"
+                         Margin="5,5,0,0"
+                        />
             </StackPanel>
             <Button Grid.Column="1"
-                 Command="{Binding LoginCommand}"                            
-                 Content="Search"                            
-                 FontSize="12"
-                 FontFamily="Montserrat"
-                 Cursor="Hand"
-                 BorderThickness="0"
-                 Foreground="White"
-         VerticalAlignment="Top"
-                    Margin="0 ,0,10,0"
+                     Command="{Binding LoginCommand}"                            
+                     Content="Search"                            
+                     FontSize="12"
+                     FontFamily="Montserrat"
+                     Cursor="Hand"
+                     BorderThickness="0"
+                     Foreground="White"
+                    VerticalAlignment="Center"
                     Click="SearchButton_Click">
                 <Button.Style>
                     <Style TargetType="Button">
@@ -86,8 +84,8 @@
                             Cursor="Hand"
                             BorderThickness="0"
                             Foreground="White"
-                    VerticalAlignment="Top"
-                    Click="ShowEmployeeAddView">
+                    VerticalAlignment="Center"
+                    Click="ShowEmployeeAddView" >
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="{StaticResource success}"/>
@@ -118,10 +116,10 @@
                 Padding="10">
 
             <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"  
- CellStyle="{DynamicResource DataGridCellStyle1}" 
- x:Name="membersDataGrid" 
-                      AutoGenerateColumns="False"
- Style="{DynamicResource DataGridStyle1}"
+                     CellStyle="{DynamicResource DataGridCellStyle1}" 
+                     x:Name="membersDataGrid" 
+                                          AutoGenerateColumns="False"
+                     Style="{DynamicResource DataGridStyle1}"
                       >
                 <DataGrid.Resources>
                     <!-- Define CheckBoxStyle1 -->
@@ -168,7 +166,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                 
+
                     <DataGridTextColumn Header="Email Address" 
                    Binding="{Binding Email}" 
                    IsReadOnly="True" 
@@ -183,20 +181,24 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridViewButton}"
+                                    <Button Style="{StaticResource gridButton}"
                                             Click="EditButton_Click"
+                                            Background="{StaticResource info}"
                                             Margin="0 , 0 , 2 , 0">
                                         <fa:IconImage Icon="MagnifyingGlass" Style="{StaticResource gridButtonIcon}"
 />
                                     </Button>
-                                    <Button Style="{StaticResource gridEditButton}"
-                                            Click="EditButton_Click">
+                                    <Button Style="{StaticResource gridButton}"
+                                            Click="EditButton_Click"
+                                            Background="{StaticResource warning}"
+                                            >
                                         <fa:IconImage Icon="pen" Style="{StaticResource gridButtonIcon}"
 />
                                     </Button>
                                     <Button Margin="5 0 0 0"
+                                            Background="{StaticResource danger}"
                                             Click="DeleteButton_Click"
-                       Style="{StaticResource gridRemoveButton}">
+                       Style="{StaticResource gridButton}">
                                         <fa:IconImage Icon="trash" Style="{StaticResource gridButtonIcon}"/>
 
                                     </Button>

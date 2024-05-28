@@ -1,6 +1,7 @@
 ﻿
 Imports System.Runtime.InteropServices
 Imports System.Windows.Interop
+
 Public Class MainDashboard
 
     Public Sub New()
@@ -50,7 +51,11 @@ Public Class MainDashboard
         ContentGrid.Children.Add(dashboardView)
     End Sub
 
-
+    Public Sub ShowRequestsView(sender As Object, e As RoutedEventArgs)
+        Dim requestsView As New RequestsView()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(requestsView)
+    End Sub
 
 
 End Class
