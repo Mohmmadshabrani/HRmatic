@@ -146,6 +146,15 @@
     <Compile Include="View\Admin\EmployeeView.xaml.vb">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\Employee\EmployeeAdd.xaml.vb">
+      <DependentUpon>EmployeeAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Employee\EmployeeDGV.xaml.vb">
+      <DependentUpon>EmployeeDGV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\Employee\EmployeeEdit.xaml.vb">
+      <DependentUpon>EmployeeEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\MainDashboard.xaml.vb">
       <DependentUpon>MainDashboard.xaml</DependentUpon>
     </Compile>
@@ -191,6 +200,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin\EmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\Employee\EmployeeAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\Employee\EmployeeDGV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\Employee\EmployeeEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -264,7 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="View\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\login-bg.jpg" />

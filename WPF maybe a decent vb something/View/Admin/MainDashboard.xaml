@@ -50,17 +50,18 @@
                                  IsChecked="False"
                                  Click="ShowEmployeeView">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Employees" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="users" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Users" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color6}"
                                  IsChecked="False"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Command="{Binding ShowHomeViewCommand}"
+                                 Click="ShowEmployeeDGV">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Clock" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Hours" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="user" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Employee" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
