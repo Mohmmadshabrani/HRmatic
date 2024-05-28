@@ -2,7 +2,7 @@
 Imports System.Windows.Controls
 Imports Microsoft.VisualBasic.ApplicationServices
 
-Public Class EmployeeAdd
+Public Class UsersAdd
     Private ReadOnly userRepository As New UserRepository()
 
     Public Sub New()

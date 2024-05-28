@@ -138,14 +138,14 @@
     <Compile Include="View\Admin\DashboardView.xaml.vb">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\EmployeeAdd.xaml.vb">
-      <DependentUpon>EmployeeAdd.xaml</DependentUpon>
+    <Compile Include="View\Admin\Users\UsersAdd.xaml.vb">
+      <DependentUpon>UsersAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\EmployeeEdit.xaml.vb">
-      <DependentUpon>EmployeeEdit.xaml</DependentUpon>
+    <Compile Include="View\Admin\Users\UsersEdit.xaml.vb">
+      <DependentUpon>UsersEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\EmployeeView.xaml.vb">
-      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    <Compile Include="View\Admin\Users\UsersView.xaml.vb">
+      <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\MainDashboard.xaml.vb">
       <DependentUpon>MainDashboard.xaml</DependentUpon>
@@ -186,15 +186,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\EmployeeAdd.xaml">
+    <Page Include="View\Admin\Users\UsersAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\EmployeeEdit.xaml">
+    <Page Include="View\Admin\Users\UsersEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\EmployeeView.xaml">
+    <Page Include="View\Admin\Users\UsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

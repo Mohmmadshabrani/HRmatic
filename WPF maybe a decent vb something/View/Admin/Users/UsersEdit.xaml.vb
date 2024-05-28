@@ -1,6 +1,6 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
 
-Public Class EmployeeEdit
+Public Class UsersEdit
     Private _selectedUser As Users
 
 
