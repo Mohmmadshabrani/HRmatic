@@ -50,7 +50,7 @@ Public Class EmployeeRepository
                                 .Department = reader("Department"),
                                 .DateResigned = reader("DateResigned"),
                                 .DateHired = reader("DateHired"),
-                                .EmployeeID = reader("ID"),
+                                .EmployeeID = reader("ID")
                             }
                         Else
                             Return Nothing

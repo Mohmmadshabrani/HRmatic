@@ -252,8 +252,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="View\Employee\" />
+    <Folder Include="View\Requests\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\login-bg.jpg" />
