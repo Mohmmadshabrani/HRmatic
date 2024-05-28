@@ -249,5 +249,8 @@
   <ItemGroup>
     <Resource Include="assets\logo-light.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\profile-pic.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

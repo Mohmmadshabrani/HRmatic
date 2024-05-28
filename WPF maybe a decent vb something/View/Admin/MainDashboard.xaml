@@ -21,7 +21,6 @@
             </Grid.ColumnDefinitions>
             <Border CornerRadius="10,0,0,10"
                     Grid.Column="0">
-
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                         <GradientStop Color="{StaticResource grad-4}" Offset="0"/>
@@ -94,7 +93,7 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <Grid>
+                <Grid Grid.Row="0">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
@@ -132,10 +131,62 @@
 
                     </StackPanel>
 
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Caption-->
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <fa:IconImage Icon="{Binding Icon}"
+                                          Height="20"
+                                          Width="20"
+                                          Foreground="{StaticResource titleColor2}"
+                                          Margin="35,0,10,0"/>
+
+                            <TextBlock Text="{Binding Caption}"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <!--User options-->
+                        <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+                            <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color1}">
+                                <fa:IconImage Icon="AngleDown"
+                                              Height="12" Width="12"
+                                              Style="{StaticResource iconButtonIcon}"/>
+                            </Button>
+                            <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                                       Foreground="{StaticResource titleColor3}"
+                                       FontFamily="Montserrat"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"/>
+                            <Ellipse Height="35" Width="35"
+                                     Stroke="{StaticResource color6}"
+                                     StrokeThickness="1"
+                                     Margin="10,0,10,0">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/assets/profile-pic.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </StackPanel>
+
+                    </Grid>
                     <Grid x:Name="ContentGrid" Grid.Row="2"
                             Margin="25">
                     </Grid>
-                    
+
                 </Grid>
 
             </Border>
