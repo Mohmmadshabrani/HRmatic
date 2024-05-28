@@ -129,6 +129,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\Users.vb" />
     <Compile Include="Repositories\UsersRepository.vb" />
+    <Compile Include="View\Admin\DashboardView.xaml.vb">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\EmployeeView.xaml.vb">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\ColorPalette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
