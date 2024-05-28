@@ -19,16 +19,21 @@
             Return
         End If
 
-        If Users.ValidateCredentials(username, password) Then
-            Dim MainDashboard = New MainDashboard
-            MainDashboard.Show()
-            Me.Close()
+        Dim user As Users = Users.ValidateCredentials(username, password)
 
-
-        Else
+        If user Is Nothing Then
             txtPass.Password = ""
             txtError.Text = "Invalid username or password."
             txtError.Visibility = Visibility.Visible
+        ElseIf user.isAdmin() Then
+            Dim MainDashboard = New MainDashboard
+            MainDashboard.Show()
+            Me.Close()
+        Else
+            MsgBox(user.isAdmin())
+            'Dim employeeDashboard = New EmployeeDashboard
+            'employeeDashboard.Show()
+            'Me.Close()
         End If
     End Sub
 

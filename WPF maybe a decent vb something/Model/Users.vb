@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.VisualBasic.ApplicationServices
 Public Class Users
     ' Properties
     Public Property ID As Integer
@@ -9,16 +10,9 @@ Public Class Users
     Public Property updated_at As DateTime
     Public Property deleted_at As DateTime
     Public Property IsActive As Boolean
+    Public Property Role As String
 
-    Public ReadOnly Property Character As String
-        Get
-            If Not String.IsNullOrEmpty(Username) Then
-                Return Username.Substring(0, 1).ToUpper()
-            Else
-                Return String.Empty
-            End If
-        End Get
-    End Property
+
     Public Shared Property UserRepo As UserRepository = New UserRepository()
 
     ' Constructor
@@ -31,9 +25,10 @@ Public Class Users
         Me.created_at = DateTime.Now
         Me.updated_at = DateTime.Now
         Me.deleted_at = DateTime.Now
+        Me.Role = ""
     End Sub
 
-    Public Sub New(ID As Integer, username As String, password As String, email As String, isActive As Boolean)
+    Public Sub New(ID As Integer, username As String, password As String, email As String, isActive As Boolean, Role As String)
         Me.ID = ID
         Me.Username = username
         Me.Password = password
@@ -41,13 +36,19 @@ Public Class Users
         Me.IsActive = isActive
         Me.created_at = DateTime.Now
         Me.updated_at = DateTime.Now
+        Me.Role = Role
     End Sub
 
-    ' Create a new user
-    Public Function Create() As Boolean
+    ' Create a new user overrideable
+    Public Overridable Function Create() As Boolean
+        Return Create(Me)
+    End Function
+
+
+
+    Public Shared Function Create(User As Users) As Boolean
         Try
-            ' Insert user into database
-            If Not UserRepo.Create(Me) Then
+            If Not UserRepo.Create(User) Then
                 Return False
             End If
             Return True
@@ -57,56 +58,35 @@ Public Class Users
     End Function
 
     ' Read user information
-    Public Function Read(ID As Integer) As Users
+    Public Shared Function GetUser(ID As Integer) As Users
         Try
             Dim user As Users = UserRepo.GetUser(ID)
             Return user
         Catch ex As Exception
-            ' Handle exceptions
             Return Nothing
         End Try
     End Function
 
-    ' Update user information
-    Public Function Update() As Boolean
-        Try
-            Return True
-        Catch ex As Exception
-            ' Handle exceptions
-            Return False
-        End Try
-    End Function
-
-    ' Delete user
-    Public Function Delete(ID As Integer) As Boolean
-        Try
-            Return True
-        Catch ex As Exception
-            ' Handle exceptions
-            Return False
-        End Try
-    End Function
-
-    ' Additional functions
 
     ' Validate user credentials
-    Public Shared Function ValidateCredentials(username As String, password As String) As Boolean
+    Public Shared Function ValidateCredentials(username As String, password As String) As Users
         Try
             ' Validate user credentials
-            If Not UserRepo.ValidateCredentials(username, password) Then
-                Return False
+            Dim user As Users = UserRepo.ValidateCredentials(username, password)
+            If user Is Nothing Then
+                Return Nothing
             End If
-            Return True
+
+            Return user
         Catch ex As Exception
-            Return False
+            Return Nothing
         End Try
     End Function
 
     ' Get all users
     Public Function GetAllUsers() As List(Of Users)
         Try
-            Dim users As New List(Of Users)()
-            ' Populate list of users from database result
+            Dim users As List(Of Users) = UserRepo.GetAllUsers()
             Return users
         Catch ex As Exception
             Return Nothing
@@ -114,6 +94,12 @@ Public Class Users
     End Function
 
 
-
+    Public Function isAdmin() As Boolean
+        MsgBox(Me.Role)
+        If Me.Role = "admin" Then
+            Return True
+        End If
+        Return False
+    End Function
 
 End Class

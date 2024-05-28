@@ -128,11 +128,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\member.vb" />
+    <Compile Include="Model\Employee.vb" />
     <Compile Include="Model\StringToVisibilityConverter.vb" />
     <Compile Include="Model\Users.vb" />
     <Compile Include="Model\ViewModel.vb" />
     <Compile Include="Repositories\UsersRepository.vb" />
+    <Compile Include="Repositories\EmployeeRepository.vb" />
     <Compile Include="View\Admin\DashboardView.xaml.vb">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
@@ -252,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
+    <Folder Include="View\Employee\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\login-bg.jpg" />

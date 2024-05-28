@@ -1,9 +1,8 @@
 ﻿
 Public Class DashboardView
 
-    Private Sub New()
+    Public Sub New()
         InitializeComponent()
-        Dim empNum As Integer = Users.getEmpNum()
     End Sub
 
     Public Sub AddEmp_Click()

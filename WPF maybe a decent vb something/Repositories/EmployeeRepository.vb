@@ -3,26 +3,28 @@ Imports MySql.Data.MySqlClient
 Imports System.Security.Cryptography
 Imports System.Text
 
-Public Class UserRepository
+Public Class EmployeeRepository
     Public Shared connectionString As String
 
     Public Sub New()
         connectionString = ConfigurationManager.ConnectionStrings("HRmatic").ConnectionString
     End Sub
     ' Create a new user
-    Public Function Create(user As Users) As Boolean
-        user.Password = HashPassword(user.Password)
+    Public Function Create(emp As Employee) As Boolean
+        emp.Password = HashPassword(emp.Password)
         Using conn As New MySqlConnection(connectionString)
             Try
-                conn.Open()
-                Dim query As String = "INSERT INTO Users (Username, Password, Email, IsActive) VALUES (@Username, @Password, @Email, @IsActive)"
-                Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@Username", user.Username)
-                    cmd.Parameters.AddWithValue("@Password", user.Password)
-                    cmd.Parameters.AddWithValue("@Email", user.Email)
-                    cmd.Parameters.AddWithValue("@IsActive", user.IsActive)
-                    cmd.ExecuteNonQuery()
-                End Using
+                If Users.Create(emp) Then
+                    conn.Open()
+                    Dim query As String = "INSERT INTO Users (Username, Password, Email, IsActive) VALUES (@Username, @Password, @Email, @IsActive)"
+                    Using cmd As New MySqlCommand(query, conn)
+                        cmd.Parameters.AddWithValue("@Username", emp.Username)
+                        cmd.Parameters.AddWithValue("@Password", emp.Password)
+                        cmd.Parameters.AddWithValue("@Email", emp.Email)
+                        cmd.Parameters.AddWithValue("@IsActive", emp.IsActive)
+                        cmd.ExecuteNonQuery()
+                    End Using
+                End If
                 Return True
             Catch ex As Exception
                 Return False
@@ -31,22 +33,24 @@ Public Class UserRepository
     End Function
 
     ' Read user information
-    Public Function GetUser(ID As Integer) As Users
+    Public Function GetEmp(ID As Integer) As Employee
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim query As String = "SELECT * FROM Users WHERE ID = @ID"
+                Dim query As String = "SELECT * FROM Employee Join users on users.id =  WHERE ID = @ID"
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@ID", ID)
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         If reader.Read() Then
-                            Return New Users() With {
-                                .ID = reader("ID"),
-                                .Username = reader("Username"),
-                                .Password = reader("Password"),
-                                .Email = reader("Email"),
-                                .IsActive = reader("IsActive"),
-                                .Role = reader("Role")
+                            Dim user As Users = Users.GetUser(reader("ID"))
+                            Return New Employee() With {
+                                .FirstName = reader("FirstName"),
+                                .LastName = reader("LastName"),
+                                .Salary = reader("Salary"),
+                                .Department = reader("Department"),
+                                .DateResigned = reader("DateResigned"),
+                                .DateHired = reader("DateHired"),
+                                .EmployeeID = reader("ID"),
                             }
                         Else
                             Return Nothing
@@ -61,17 +65,17 @@ Public Class UserRepository
     End Function
 
     ' Update user information
-    Public Function Update(user As Users) As Boolean
+    Public Function Update(emp As Employee) As Boolean
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
                 Dim query As String = "UPDATE Users SET Username = @Username, Password = @Password, Email = @Email, IsActive = @IsActive WHERE ID = @ID"
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@ID", user.ID)
-                    cmd.Parameters.AddWithValue("@Username", user.Username)
-                    cmd.Parameters.AddWithValue("@Password", user.Password)
-                    cmd.Parameters.AddWithValue("@Email", user.Email)
-                    cmd.Parameters.AddWithValue("@IsActive", user.IsActive)
+                    cmd.Parameters.AddWithValue("@ID", emp.ID)
+                    cmd.Parameters.AddWithValue("@Username", emp.Username)
+                    cmd.Parameters.AddWithValue("@Password", emp.Password)
+                    cmd.Parameters.AddWithValue("@Email", emp.Email)
+                    cmd.Parameters.AddWithValue("@IsActive", emp.IsActive)
                     cmd.ExecuteNonQuery()
                 End Using
                 Return True
@@ -101,20 +105,20 @@ Public Class UserRepository
     End Function
 
     ' Validate user credentials
-    Public Function ValidateCredentials(username As String, password As String) As Users
+    Public Function ValidateCredentials(username As String, password As String) As Boolean
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim query As String = "SELECT ID FROM Users WHERE Username = @Username AND Password = @Password"
+                Dim query As String = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password"
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@Username", username)
                     cmd.Parameters.AddWithValue("@Password", HashPassword(password))
-                    Dim user As Users = GetUser(cmd.ExecuteScalar())
-                    Return user
+                    Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                    Return count > 0
                 End Using
                 conn.Close()
             Catch ex As Exception
-                Return Nothing
+                Return False
             End Try
         End Using
     End Function
