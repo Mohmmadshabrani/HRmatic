@@ -1,7 +1,7 @@
 ﻿Imports System.Diagnostics.Metrics
 Imports Microsoft.VisualBasic.ApplicationServices
 
-Public Class EmployeeView
+Public Class UsersView
     Private _contentGrid As Grid
     Public Sub New()
         InitializeComponent()
@@ -17,7 +17,7 @@ Public Class EmployeeView
     End Sub
     ' add new user switch to EmoloyeeAdd
     Private Sub ShowEmployeeAddView(sender As Object, e As RoutedEventArgs)
-        Dim employeeAddView As New EmployeeAdd()
+        Dim employeeAddView As New UsersAdd()
         Dim contentControl As New ContentControl()
 
         contentControl.Content = employeeAddView
@@ -39,7 +39,7 @@ Public Class EmployeeView
 
         If selectedUser IsNot Nothing Then
 
-            Dim editUserView As New EmployeeEdit(selectedUser)
+            Dim editUserView As New UsersEdit(selectedUser)
             Dim contentControl As New ContentControl()
 
             contentControl.Content = editUserView

@@ -45,29 +45,29 @@
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color7}"
+                   <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color6}"
                                  IsChecked="False"
-                                 Click="ShowEmployeeView">
+                                Click="ShowUsersView"
+                                 Command="{Binding ShowHomeViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="users" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Users" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color6}"
+                                 Tag="{StaticResource color7}"
                                  IsChecked="False"
-                                 Command="{Binding ShowHomeViewCommand}"
-                                 Click="ShowEmployeeDGV">
+                                 Click="ShowUsersView">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="user" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Employee" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Employees" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color3}"
                                  IsChecked="False"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Click="ShowRequestsView">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="circleExclamation" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Employee Requests" Style="{StaticResource menuButtonText}"/>
@@ -162,13 +162,7 @@
                                     FlowDirection="RightToLeft"
                                     VerticalAlignment="Center"
                                     Margin="0,0,10,0">
-                            <Button Style="{StaticResource iconButton}"
-                                    Tag="{StaticResource color1}">
-                                <fa:IconImage Icon="AngleDown"
-                                              Height="12" Width="12"
-                                              Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
-                            <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                             <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
                                        Foreground="{StaticResource titleColor3}"
                                        FontFamily="Montserrat"
                                        FontSize="12"

@@ -129,6 +129,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Employee.vb" />
+    <Compile Include="Model\Requests.vb" />
     <Compile Include="Model\StringToVisibilityConverter.vb" />
     <Compile Include="Model\Users.vb" />
     <Compile Include="Model\ViewModel.vb" />
@@ -137,14 +138,14 @@
     <Compile Include="View\Admin\DashboardView.xaml.vb">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\EmployeeAdd.xaml.vb">
-      <DependentUpon>EmployeeAdd.xaml</DependentUpon>
+    <Compile Include="View\Admin\Users\UsersAdd.xaml.vb">
+      <DependentUpon>UsersAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\EmployeeEdit.xaml.vb">
-      <DependentUpon>EmployeeEdit.xaml</DependentUpon>
+    <Compile Include="View\Admin\Users\UsersEdit.xaml.vb">
+      <DependentUpon>UsersEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\EmployeeView.xaml.vb">
-      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    <Compile Include="View\Admin\Users\UsersView.xaml.vb">
+      <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\Employee\EmployeeAdd.xaml.vb">
       <DependentUpon>EmployeeAdd.xaml</DependentUpon>
@@ -171,6 +172,9 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\Requests\RequestsView.xaml.vb">
+      <DependentUpon>RequestsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Themes\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,15 +195,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\EmployeeAdd.xaml">
+    <Page Include="View\Admin\Users\UsersAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\EmployeeEdit.xaml">
+    <Page Include="View\Admin\Users\UsersEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\EmployeeView.xaml">
+    <Page Include="View\Admin\Users\UsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Requests\RequestsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,9 +291,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="assets\login-bg.jpg" />
   </ItemGroup>

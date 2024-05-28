@@ -1,6 +1,7 @@
 ﻿
 Imports System.Runtime.InteropServices
 Imports System.Windows.Interop
+
 Public Class MainDashboard
 
     Public Sub New()
@@ -38,8 +39,13 @@ Public Class MainDashboard
         ContentGrid.Children.Add(homeView)
     End Sub
 
+    Private Sub ShowUsersView(sender As Object, e As RoutedEventArgs)
+        Dim employeeView As New UsersView(ContentGrid)
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(employeeView)
+    End Sub
     Private Sub ShowEmployeeView(sender As Object, e As RoutedEventArgs)
-        Dim employeeView As New EmployeeView(ContentGrid)
+        Dim employeeView As New UsersView(ContentGrid)
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(employeeView)
     End Sub
@@ -50,7 +56,11 @@ Public Class MainDashboard
         ContentGrid.Children.Add(dashboardView)
     End Sub
 
-
+    Public Sub ShowRequestsView(sender As Object, e As RoutedEventArgs)
+        Dim requestsView As New RequestsView()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(requestsView)
+    End Sub
 
 
 End Class
