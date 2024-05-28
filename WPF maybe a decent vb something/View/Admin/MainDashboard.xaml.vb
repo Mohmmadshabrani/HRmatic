@@ -2,6 +2,14 @@
 Imports System.Runtime.InteropServices
 Imports System.Windows.Interop
 Public Class MainDashboard
+
+    Public Sub New()
+        InitializeComponent()
+        Dim dashboardView As New DashboardView()
+        ContentGrid.Children.Add(dashboardView)
+    End Sub
+
+
     <DllImport("user32.dll")>
     Public Shared Function SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer) As IntPtr
     End Function
