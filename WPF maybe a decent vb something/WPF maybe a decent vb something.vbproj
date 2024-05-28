@@ -129,11 +129,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\member.vb" />
+    <Compile Include="Model\StringToVisibilityConverter.vb" />
     <Compile Include="Model\Users.vb" />
     <Compile Include="Model\ViewModel.vb" />
     <Compile Include="Repositories\UsersRepository.vb" />
     <Compile Include="View\Admin\DashboardView.xaml.vb">
       <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\EmployeeAdd.xaml.vb">
+      <DependentUpon>EmployeeAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\EmployeeEdit.xaml.vb">
+      <DependentUpon>EmployeeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\EmployeeInfo.xaml.vb">
+      <DependentUpon>EmployeeInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Admin\EmployeeView.xaml.vb">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
@@ -161,6 +171,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin\DashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\EmployeeAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\EmployeeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\EmployeeInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

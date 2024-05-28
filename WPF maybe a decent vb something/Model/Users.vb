@@ -10,7 +10,16 @@ Public Class Users
     Public Property deleted_at As DateTime
     Public Property IsActive As Boolean
 
-    Public Shared Property userRepo As UserRepository = New UserRepository()
+    Public ReadOnly Property Character As String
+        Get
+            If Not String.IsNullOrEmpty(Username) Then
+                Return Username.Substring(0, 1).ToUpper()
+            Else
+                Return String.Empty
+            End If
+        End Get
+    End Property
+    Public Shared Property UserRepo As UserRepository = New UserRepository()
 
     ' Constructor
     Public Sub New()
@@ -38,7 +47,7 @@ Public Class Users
     Public Function Create() As Boolean
         Try
             ' Insert user into database
-            If Not userRepo.Create(Me) Then
+            If Not UserRepo.Create(Me) Then
                 Return False
             End If
             Return True
@@ -50,7 +59,7 @@ Public Class Users
     ' Read user information
     Public Function Read(ID As Integer) As Users
         Try
-            Dim user As Users = userRepo.GetUser(ID)
+            Dim user As Users = UserRepo.GetUser(ID)
             Return user
         Catch ex As Exception
             ' Handle exceptions
@@ -84,7 +93,7 @@ Public Class Users
     Public Shared Function ValidateCredentials(username As String, password As String) As Boolean
         Try
             ' Validate user credentials
-            If Not userRepo.ValidateCredentials(username, password) Then
+            If Not UserRepo.ValidateCredentials(username, password) Then
                 Return False
             End If
             Return True

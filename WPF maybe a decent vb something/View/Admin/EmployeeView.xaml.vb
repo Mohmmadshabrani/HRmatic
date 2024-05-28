@@ -1,69 +1,96 @@
 ﻿Imports System.Diagnostics.Metrics
+Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class EmployeeView
+    Private _contentGrid As Grid
     Public Sub New()
         InitializeComponent()
-        Dim members As New List(Of Member)()
 
-
-        Dim converter As New BrushConverter()
-
-        members.Add(New Member With {
-    .Number = "1",
-    .Character = "J",
-    .BgColor = DirectCast(converter.ConvertFromString("#1098AD"), Brush),
-    .Name = "John Doe",
-    .Position = "Coach",
-    .Email = "john.doe@gmail.com",
-.Phone = "415-954-1475"
-})
-        members.Add(New Member With {
-    .Number = "2",
-    .Character = "R",
-    .BgColor = DirectCast(converter.ConvertFromString("#1E88E5"), Brush),
-    .Name = "Reza Alavi",
-    .Position = "Administrator",
-    .Email = "reza110@hotmail.com",
-    .Phone = "254-451-7893"
-})
-        members.Add(New Member With {
-    .Number = "3",
-    .Character = "D",
-    .BgColor = DirectCast(converter.ConvertFromString("#FF8F00"), Brush),
-    .Name = "Dennis Castillo",
-    .Position = "Coach",
-    .Email = "deny.cast@gmail.com",
-    .Phone = "125-520-0141"
-})
-        members.Add(New Member With {
-    .Number = "4",
-    .Character = "G",
-    .BgColor = DirectCast(converter.ConvertFromString("#FF5252"), Brush),
-    .Name = "Gabriel Cox",
-    .Position = "Coach",
-    .Email = "coxcox@gmail.com",
-    .Phone = "808-635-1221"
-})
-        members.Add(New Member With {
-    .Number = "5",
-    .Character = "L",
-    .BgColor = DirectCast(converter.ConvertFromString("#0CA678"), Brush),
-    .Name = "Lena Jones",
-    .Position = "Manager",
-    .Email = "lena.offi@hotmail.com",
-    .Phone = "320-658-9174"
-})
-
-        ' Add more members as needed...
-
-        membersDataGrid.ItemsSource = members
 
     End Sub
+    Public Sub New(contentGrid As Grid)
+        InitializeComponent()
+        Dim userRepo As New UserRepository()
+        Dim users As List(Of Users) = userRepo.GetAllUsers()
+        membersDataGrid.ItemsSource = users
+        _contentGrid = contentGrid
+    End Sub
+    ' add new user switch to EmoloyeeAdd
+    Private Sub ShowEmployeeAddView(sender As Object, e As RoutedEventArgs)
+        Dim employeeAddView As New EmployeeAdd()
+        Dim contentControl As New ContentControl()
+
+        contentControl.Content = employeeAddView
+        _contentGrid.Children.Clear()
+        _contentGrid.Children.Add(contentControl)
+    End Sub
+
     Private Sub DataGrid_RowEditEnding(sender As Object, e As DataGridRowEditEndingEventArgs)
         If e.EditAction = DataGridEditAction.Commit Then
             Dim viewModel As EmployeeViewModel = DirectCast(DataContext, EmployeeViewModel)
             Dim editedUser As Users = DirectCast(e.Row.Item, Users)
             viewModel.SaveUser(editedUser)
         End If
+    End Sub
+    Private Sub EditButton_Click(sender As Object, e As RoutedEventArgs)
+
+        Dim selectedUser As Users = CType(membersDataGrid.SelectedItem, Users)
+
+
+        If selectedUser IsNot Nothing Then
+
+            Dim editUserView As New EmployeeEdit(selectedUser)
+            Dim contentControl As New ContentControl()
+
+            contentControl.Content = editUserView
+            _contentGrid.Children.Clear()
+            _contentGrid.Children.Add(contentControl)
+
+
+        Else
+            MessageBox.Show("Please select a user to edit.", "No User Selected", MessageBoxButton.OK, MessageBoxImage.Information)
+        End If
+    End Sub
+    Private Sub DeleteButton_Click(sender As Object, e As RoutedEventArgs)
+
+        Dim result As MessageBoxResult = MessageBox.Show("Are you sure you want to delete this user?", "Confirm Deletion", MessageBoxButton.YesNo)
+
+        If result = MessageBoxResult.Yes Then
+
+            Dim selectedUser As Users = CType(membersDataGrid.SelectedItem, Users)
+
+            If selectedUser IsNot Nothing Then
+
+                Dim userRepository As New UserRepository()
+                Dim success As Boolean = userRepository.Delete(selectedUser.ID)
+
+                If success Then
+
+                    RefreshDataGrid()
+                Else
+
+                    MessageBox.Show("Failed to delete user.", "Error", MessageBoxButton.OK, MessageBoxImage.Error)
+                End If
+            Else
+
+                MessageBox.Show("No user selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Error)
+            End If
+        End If
+    End Sub
+    ' Search for user by username or email
+    Private Sub SearchButton_Click(sender As Object, e As RoutedEventArgs)
+        Dim searchValue As String = SearchBox.Text
+        Dim userRepo As New UserRepository()
+        Dim users As List(Of Users) = userRepo.SearchUsers(searchValue)
+        membersDataGrid.ItemsSource = users
+    End Sub
+
+
+
+
+    Private Sub RefreshDataGrid()
+        Dim userRepo As New UserRepository()
+        Dim users As List(Of Users) = userRepo.GetAllUsers()
+        membersDataGrid.ItemsSource = users
     End Sub
 End Class

@@ -39,29 +39,29 @@ xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
 
 
     <Style x:Key="gridEditButton" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource brush-secondary}" />
-            <Setter Property="BorderBrush" Value="#4A148C" />
-            <Setter Property="Foreground" Value="#ffffff" />
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Padding="5" BorderThickness="1" CornerRadius="5">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#673AB7" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+        <Setter Property="Background" Value="{StaticResource warning}" />
+        <Setter Property="BorderBrush" Value="{StaticResource warning}" />
+        <Setter Property="Foreground" Value="#ffffff" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template" >
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Padding="5" BorderThickness="1" CornerRadius="5">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource warning-shadow}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 
-        <Style x:Key="gridRemoveButton" TargetType="Button" BasedOn="{StaticResource gridEditButton}">
+    <Style x:Key="gridRemoveButton" TargetType="Button" BasedOn="{StaticResource gridEditButton}">
             <Setter Property="Background" Value="{StaticResource danger}" />
         <Setter Property="BorderBrush" Value="{StaticResource danger}" />
             <Style.Triggers>
@@ -70,11 +70,20 @@ xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
                 </Trigger>
             </Style.Triggers>
         </Style>
+    <Style x:Key="gridViewButton" TargetType="Button" BasedOn="{StaticResource gridEditButton}">
+        <Setter Property="Background" Value="{StaticResource primary}" />
+        <Setter Property="BorderBrush" Value="{StaticResource primary}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource primary-shadow}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 
-        
 
-        <!--#region DataGrid Style-->
+
+    <!--#region DataGrid Style-->
 
         <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
             <Setter Property="Template">

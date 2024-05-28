@@ -30,7 +30,7 @@ Public Class MainDashboard
     End Sub
 
     Private Sub ShowEmployeeView(sender As Object, e As RoutedEventArgs)
-        Dim employeeView As New EmployeeView()
+        Dim employeeView As New EmployeeView(ContentGrid) 
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(employeeView)
     End Sub
