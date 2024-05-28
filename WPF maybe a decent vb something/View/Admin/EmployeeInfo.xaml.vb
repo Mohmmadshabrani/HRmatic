@@ -1,3 +1,0 @@
-﻿Class EmployeeInfo
-
-End Class

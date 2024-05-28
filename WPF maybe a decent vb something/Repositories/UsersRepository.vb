@@ -104,7 +104,14 @@ Public Class UserRepository
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim query As String = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password"
+
+
+
+
+                Dim query As String = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password "
+                'check  if user is  admin or not
+
+
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@Username", username)
                     cmd.Parameters.AddWithValue("@Password", HashPassword(password))
@@ -117,6 +124,23 @@ Public Class UserRepository
             End Try
         End Using
     End Function
+
+    Public Function IsAdmin(username As String) As Boolean
+        Using conn As New MySqlConnection(connectionString)
+            Try
+                conn.Open()
+                Dim query As String = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Role = 'Admin'"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@Username", username)
+                    Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                    Return count > 0
+                End Using
+            Catch ex As Exception
+                Return False
+            End Try
+        End Using
+    End Function
+
 
     Public Shared Function HashPassword(password As String) As String
         Using sha256 As SHA256 = SHA256.Create()

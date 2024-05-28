@@ -20,9 +20,12 @@
         End If
 
         If Users.ValidateCredentials(username, password) Then
-            Dim MainDashboard = New MainDashboard
+
+
+            Dim MainDashboard = New EmpDashboard
             MainDashboard.Show()
-            Me.Close()
+                Me.Close()
+
 
 
         Else
