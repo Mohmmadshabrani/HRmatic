@@ -24,7 +24,7 @@ Public Class Employee : Inherits Users
     End Sub
     Public Sub New(EmployeeID As Integer, FirstName As String, LastName As String,
                    Department As String, Salary As Decimal, DateHired As DateTime,
-                   DateResigned As DateTime, ID As Integer, username As String,
+                   DateResigned As DateTime?, ID As Integer, username As String,
                    password As String, email As String, isActive As Boolean, Role As String)
 
         MyBase.New(ID, username, password, email, isActive, Role)
@@ -60,6 +60,27 @@ Public Class Employee : Inherits Users
         Try
             Dim emp As Employee = EmployeeRepo.GetEmp(ID)
             Return emp
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
+
+    Public Shared Function getAllEmps() As List(Of Employee)
+        Dim empsRepo As EmployeeRepository = New EmployeeRepository()
+        Try
+            Dim emps As List(Of Employee) = empsRepo.GetAllEmps()
+            Return emps
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
+    Public Shared Function searchEmps(search As String) As List(Of Employee)
+        Dim empsRepo As EmployeeRepository = New EmployeeRepository()
+        Try
+            Dim emps As List(Of Employee) = empsRepo.SearchEmps(search)
+            Return emps
         Catch ex As Exception
             Return Nothing
         End Try
