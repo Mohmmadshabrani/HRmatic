@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -154,5 +153,4 @@
                 </DataGrid>
             </Border>
         </Grid>
-    </Grid>
 </UserControl>
