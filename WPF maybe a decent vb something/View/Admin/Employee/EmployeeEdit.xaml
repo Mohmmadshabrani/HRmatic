@@ -52,7 +52,7 @@
                  Foreground="White"
          VerticalAlignment="Top"
                     Margin="0 ,0,10,0"
-                    Click="SearchButton_Click">
+                    >
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#002e52"/>
@@ -86,7 +86,7 @@
                             BorderThickness="0"
                             Foreground="White"
                     VerticalAlignment="Top"
-                    Click="ShowEmployeeAddView">
+                   >
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="{StaticResource success}"/>
@@ -179,18 +179,18 @@ VerticalAlignment="Center"/>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Style="{StaticResource gridViewButton}"
-                                            Click="EditButton_Click"
+                                          
                                             Margin="0 , 0 , 2 , 0">
                                         <fa:IconImage Icon="MagnifyingGlass" Style="{StaticResource gridButtonIcon}"
 />
                                     </Button>
                                     <Button Style="{StaticResource gridEditButton}"
-                                            Click="EditButton_Click">
+                                         >
                                         <fa:IconImage Icon="pen" Style="{StaticResource gridButtonIcon}"
 />
                                     </Button>
                                     <Button Margin="5 0 0 0"
-                                            Click="DeleteButton_Click"
+                                      
                        Style="{StaticResource gridRemoveButton}">
                                         <fa:IconImage Icon="trash" Style="{StaticResource gridButtonIcon}"/>
 

@@ -113,16 +113,21 @@ Public Class EmployeeRepository
 
     ' Validate user credentials
     ' Get all users
-    Public Function GetAllEmps() As List(Of Users)
-        Dim Emps As New List(Of Users)()
+    Public Function GetAllEmps() As List(Of Employee)
+        Dim Emps As New List(Of Employee)()
         Using conn As New MySqlConnection(connectionString)
             Try
+
                 conn.Open()
                 Dim query As String = "SELECT * FROM Employee"
                 Using cmd As New MySqlCommand(query, conn)
+                    MsgBox(cmd)
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
+
                             Dim user As Users = Users.GetUser(reader("ID"))
+
+
                             Emps.Add(New Employee() With {
                                 .EmployeeID = reader("ID"),
                                 .FirstName = reader("FirstName"),
@@ -140,9 +145,14 @@ Public Class EmployeeRepository
                     End Using
                 End Using
             Catch ex As Exception
-                ' Handle exceptions
+
+                MsgBox(ex.Message)
+
+
             End Try
         End Using
+
+
         Return Emps
     End Function
     ' userRepo.SearchUsers
