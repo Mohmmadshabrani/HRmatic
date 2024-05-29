@@ -7,19 +7,18 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              
              mc:Ignorable="d" 
-               Height="387" Width="400">
+               Height="484" Width="394">
     <UserControl.Resources>
         <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
     </UserControl.Resources>
     <Grid Margin="10">
         <StackPanel Margin="0,0,0,10">
             <TextBlock Text="Add New Employee" FontSize="20" FontWeight="Bold" Foreground="white" Margin="0,0,0,20" HorizontalAlignment="Center"/>
-
             <Grid Margin="0,0,0,10">
-                <TextBox x:Name="FirstName" />
+                <TextBox x:Name="FirstName" Style="{StaticResource BootstrapTextBoxStyle}"/>
                 <TextBlock Text="FirstName" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
-                           VerticalAlignment="Center" HorizontalAlignment="Left" 
-                           Visibility="{Binding Text, ElementName=FirstName, Converter={StaticResource StringToVisibilityConverter}}"/>
+               VerticalAlignment="Center" HorizontalAlignment="Left" 
+               Visibility="{Binding Text, ElementName=FirstName, Converter={StaticResource StringToVisibilityConverter}}"/>
             </Grid>
 
             <Grid Margin="0,0,0,10">
@@ -27,21 +26,21 @@
                     <ColumnDefinition Width="13*"/>
                     <ColumnDefinition Width="63*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="LastName" Grid.ColumnSpan="2" />
+                <TextBox x:Name="LastName" Grid.ColumnSpan="2" Style="{StaticResource BootstrapTextBoxStyle}" />
                 <TextBlock Text="LastName" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                            VerticalAlignment="Center" HorizontalAlignment="Left" 
                            Visibility="{Binding Text, ElementName=LastName, Converter={StaticResource StringToVisibilityConverter}}"/>
             </Grid>
 
             <Grid Margin="0,0,0,10">
-                <TextBox x:Name="Department" />
+                <TextBox x:Name="Department" Style="{StaticResource BootstrapTextBoxStyle}" />
                 <TextBlock Text="Department" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                            VerticalAlignment="Center" HorizontalAlignment="Left" 
                                 Visibility="{Binding Text, ElementName=Salary, Converter={StaticResource StringToVisibilityConverter}}"/>
 
             </Grid>
             <Grid Margin="0,0,0,10">
-                <TextBox x:Name="Salary" />
+                <TextBox x:Name="Salary" Style="{StaticResource BootstrapTextBoxStyle}" />
                 <TextBlock Text="Salary" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                  VerticalAlignment="Center" HorizontalAlignment="Left" 
                       Visibility="{Binding Text, ElementName=Salary, Converter={StaticResource StringToVisibilityConverter}}"/>
@@ -49,7 +48,7 @@
             </Grid>
 
             <Grid Margin="0,0,0,10">
-                <DatePicker x:Name="DateOfHired" />
+                <DatePicker x:Name="DateOfHired"  Style="{StaticResource BootstrapDatePickerStyle}" />
                 <TextBlock Text="Date of Hired" 
                Foreground="Gray" 
                Margin="5,0,0,0" 
@@ -60,19 +59,19 @@
             </Grid>
 
             <Grid Margin="0,0,0,10">
-                <TextBox x:Name="Username" />
+                <TextBox x:Name="Username" Style="{StaticResource BootstrapTextBoxStyle}"/>
                 <TextBlock Text="Username" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                            VerticalAlignment="Center" HorizontalAlignment="Left" 
                            Visibility="{Binding Text, ElementName=Username, Converter={StaticResource StringToVisibilityConverter}}"/>
             </Grid>
             <Grid Margin="0,0,0,10">
-                <TextBox x:Name="Email" />
+                <TextBox x:Name="Email" Style="{StaticResource BootstrapTextBoxStyle}" />
                 <TextBlock Text="Email" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                 VerticalAlignment="Center" HorizontalAlignment="Left" 
                 Visibility="{Binding Text, ElementName=Email, Converter={StaticResource StringToVisibilityConverter}}"/>
             </Grid>
             <Grid Margin="0,0,0,10">
-                <TextBox x:Name="Password" />
+                <TextBox x:Name="Password"  Style="{StaticResource BootstrapTextBoxStyle}"/>
                 <TextBlock Text="Password" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                 VerticalAlignment="Center" HorizontalAlignment="Left" 
                 Visibility="{Binding Text, ElementName=Password, Converter={StaticResource StringToVisibilityConverter}}"/>

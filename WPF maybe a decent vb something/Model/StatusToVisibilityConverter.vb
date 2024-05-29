@@ -7,7 +7,7 @@ Public Class StatusToVisibilityConverter
         Dim condition As String = TryCast(parameter, String)
 
         If Not String.IsNullOrEmpty(status) AndAlso Not String.IsNullOrEmpty(condition) Then
-            If status.Equals(condition, StringComparison.OrdinalIgnoreCase) Then
+            If status.Equals(condition, StringComparison.OrdinalIgnoreCase) Or condition.Equals("NotPending", StringComparison.OrdinalIgnoreCase) Then
                 Return Visibility.Visible
             End If
         End If
