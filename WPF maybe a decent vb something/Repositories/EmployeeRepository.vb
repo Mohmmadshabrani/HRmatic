@@ -113,8 +113,8 @@ Public Class EmployeeRepository
 
     ' Validate user credentials
     ' Get all users
-    Public Function GetAllEmps() As List(Of Users)
-        Dim Emps As New List(Of Users)()
+    Public Function GetAllEmps() As List(Of Employee)
+        Dim Emps As New List(Of Employee)()
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()

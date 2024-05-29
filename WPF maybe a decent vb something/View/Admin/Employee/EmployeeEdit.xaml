@@ -154,7 +154,7 @@
                                     <TextBlock Text="{Binding FirstName}" 
                           VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding LastName}" 
-VerticalAlignment="Center"/>
+                                            VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
