@@ -9,25 +9,26 @@ Public Class RequestRepository
         connectionString = ConfigurationManager.ConnectionStrings("HRmatic").ConnectionString
     End Sub
     Public Function Create(request As Requests) As Boolean
-        Using conn As New MySqlConnection(connectionString)
-            Try
+        Try
+            Using conn As New MySqlConnection(connectionString)
                 conn.Open()
-                Dim query As String = "INSERT INTO requests(EmpID, Type, Status, Time, Reason) VALUES(@EmployeeID, @Type, @Status, @Time, @Reason)"
+                Dim query As String = "INSERT INTO requests(empID, status, type, time, reason) VALUES(@EmployeeID, @Status, @Type, @Time, @Reason)"
                 Using cmd As New MySqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@EmpID", request.EmployeeID)
-                    cmd.Parameters.AddWithValue("@Type", request.Type)
+                    cmd.Parameters.AddWithValue("@EmployeeID", request.EmployeeID)
                     cmd.Parameters.AddWithValue("@Status", request.Status)
+                    cmd.Parameters.AddWithValue("@Type", request.Type)
                     cmd.Parameters.AddWithValue("@Time", request.Time)
                     cmd.Parameters.AddWithValue("@Reason", request.Reason)
                     cmd.ExecuteNonQuery()
                 End Using
                 Return True
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-        End Using
-        Return False
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while saving the request: " & ex.Message)
+            Return False
+        End Try
     End Function
+
 
     Public Function GetRequest(ID As Integer) As Requests
         Using conn As New MySqlConnection(connectionString)

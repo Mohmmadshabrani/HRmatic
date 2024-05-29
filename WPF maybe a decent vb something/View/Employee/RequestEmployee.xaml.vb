@@ -12,6 +12,7 @@
             Dim reasonType As String = DirectCast(Type.SelectedItem, ComboBoxItem).Content.ToString()
             Dim reasonText As String = Reason.Text
             Dim dateOfRequests As DateTime = DateOfRequest.SelectedDate.Value
+            MessageBox.Show(reasonType & " " & reasonText & " " & dateOfRequests)
             Dim Requestinfo As New Requests()
             Requestinfo.EmployeeID = userId
 

@@ -33,9 +33,9 @@
                     <ColumnDefinition Width="63*"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="Reason" Grid.ColumnSpan="2" />
-                <TextBlock Text="Reason" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
-                           VerticalAlignment="Center" HorizontalAlignment="Left" 
-                           Visibility="{Binding Text, ElementName=LastName, Converter={StaticResource StringToVisibilityConverter}}"/>
+                <TextBlock Text="Reason" Foreground="Gray" Margin="112,2,0,0" IsHitTestVisible="False" 
+                           VerticalAlignment="Top" HorizontalAlignment="Left" 
+                           Visibility="{Binding Text, ElementName=LastName, Converter={StaticResource StringToVisibilityConverter}}" RenderTransformOrigin="5.089,0.779" Grid.Column="1"/>
             </Grid>
 
             <Grid Margin="0,0,0,10"/>
