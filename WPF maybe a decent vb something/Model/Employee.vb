@@ -56,7 +56,7 @@ Public Class Employee : Inherits Users
     End Function
 
     ' read employee information
-    Public Function GetEmp(ID As Integer) As Employee
+    Public Shared Function GetEmp(ID As Integer) As Employee
         Try
             Dim emp As Employee = EmployeeRepo.GetEmp(ID)
             Return emp

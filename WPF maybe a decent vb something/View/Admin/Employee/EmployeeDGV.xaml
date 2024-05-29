@@ -130,17 +130,21 @@
                         CanUserResize="False" 
                         Width="Auto" 
                         Binding="{Binding ID}"/>
-                    <DataGridTemplateColumn Header="Employee Name" 
-                            IsReadOnly="True">
+                    <DataGridTemplateColumn Header="Employee Name" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding firstName}" />
-                                    <TextBlock Text="{Binding lastName}"/>
-                                </StackPanel>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="FirstName" />
+                                            <Binding Path="LastName" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+
 
                     <DataGridTextColumn 
                             Header="Department"

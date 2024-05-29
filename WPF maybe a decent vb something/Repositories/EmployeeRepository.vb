@@ -1,8 +1,6 @@
 ﻿Imports System.Configuration
+Imports System.Windows.Interop
 Imports MySql.Data.MySqlClient
-Imports System.Security.Cryptography
-Imports System.Text
-
 Public Class EmployeeRepository
     Public Shared connectionString As String
 
@@ -49,12 +47,12 @@ Public Class EmployeeRepository
                             Dim user As Users = Users.GetUser(ID)
                             Return New Employee() With {
                                 .EmployeeID = reader("ID"),
-                                .FirstName = reader("FirstName"),
-                                .LastName = reader("LastName"),
-                                .Salary = reader("Salary"),
-                                .Department = reader("Department"),
-                                .DateResigned = reader("DateResigned"),
-                                .DateHired = reader("DateHired"),
+                                .FirstName = reader("FirstName").ToString(),
+                                .LastName = reader("LastName").ToString(),
+                                .Salary = Convert.ToDecimal(reader("Salary")),
+                                .Department = reader("Department").ToString(),
+                                .DateHired = Convert.ToDateTime(reader("DateHired")),
+                                .DateResigned = If(IsDBNull(reader("DateResigned")), Nothing, Convert.ToDateTime(reader("DateResigned"))),
                                 .Username = user.Username,
                                 .Email = user.Email,
                                 .IsActive = user.IsActive,
@@ -121,13 +119,9 @@ Public Class EmployeeRepository
                 conn.Open()
                 Dim query As String = "SELECT * FROM Employee"
                 Using cmd As New MySqlCommand(query, conn)
-                    MsgBox(cmd)
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
-
                             Dim user As Users = Users.GetUser(reader("ID"))
-
-
                             Emps.Add(New Employee() With {
                                 .EmployeeID = reader("ID"),
                                 .FirstName = reader("FirstName").ToString(),

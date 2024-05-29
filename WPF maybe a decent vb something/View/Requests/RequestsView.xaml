@@ -104,24 +104,17 @@
                             IsReadOnly="True" 
                             CanUserResize="False" 
                             Binding="{Binding ID}"/>
-                        <DataGridTemplateColumn Header="Employee Name" 
-                            IsReadOnly="True">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding firstName}" />
-                                        <TextBlock Text="{Binding lastName}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Employee Name" 
+                            IsReadOnly="True"
+                            Binding="{Binding EmpName}"/> 
+                            
                         <DataGridTextColumn 
                             Header="Type"
                             Binding="{Binding type}" 
                             IsReadOnly="True"/>
                         <DataGridTextColumn 
                             Header="Date"
-                            Binding="{Binding RDate}" 
+                            Binding="{Binding Time, StringFormat=\{0:yy/MM/dd\}}"
                             IsReadOnly="True"/>
                         <DataGridTextColumn 
                             Header="Time"

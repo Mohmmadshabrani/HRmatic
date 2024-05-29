@@ -133,6 +133,7 @@
     <Compile Include="Model\StringToVisibilityConverter.vb" />
     <Compile Include="Model\Users.vb" />
     <Compile Include="Model\ViewModel.vb" />
+    <Compile Include="Repositories\RequestRepository.vb" />
     <Compile Include="Repositories\UsersRepository.vb" />
     <Compile Include="Repositories\EmployeeRepository.vb" />
     <Compile Include="View\Admin\DashboardView.xaml.vb">

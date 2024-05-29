@@ -16,6 +16,9 @@ Public Class RequestsView
 
     Public Sub New()
         InitializeComponent()
+        Dim requestRepo As New RequestRepository()
+        Dim requests As List(Of Requests) = requestRepo.GetAllRequests()
+        requestsDataGrid.ItemsSource = requests
     End Sub
 
 
