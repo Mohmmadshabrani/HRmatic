@@ -61,6 +61,12 @@ Public Class MainDashboard
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(requestsView)
     End Sub
+    Private Sub ShowEmployeeDGV(sender As Object, e As RoutedEventArgs)
+        Dim employeeView As New EmployeeDGV()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(employeeView)
+    End Sub
+
 
 
 End Class
