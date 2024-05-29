@@ -130,12 +130,12 @@ Public Class EmployeeRepository
 
                             Emps.Add(New Employee() With {
                                 .EmployeeID = reader("ID"),
-                                .FirstName = reader("FirstName"),
-                                .LastName = reader("LastName"),
-                                .Salary = reader("Salary"),
-                                .Department = reader("Department"),
-                                .DateResigned = reader("DateResigned"),
-                                .DateHired = reader("DateHired"),
+                                .FirstName = reader("FirstName").ToString(),
+                                .LastName = reader("LastName").ToString(),
+                                .Salary = Convert.ToDecimal(reader("Salary")),
+                                .Department = reader("Department").ToString(),
+                                .DateHired = Convert.ToDateTime(reader("DateHired")),
+                                .DateResigned = If(IsDBNull(reader("DateResigned")), Nothing, Convert.ToDateTime(reader("DateResigned"))),
                                 .Username = user.Username,
                                 .Email = user.Email,
                                 .IsActive = user.IsActive,
@@ -145,10 +145,9 @@ Public Class EmployeeRepository
                     End Using
                 End Using
             Catch ex As Exception
-
                 MsgBox(ex.Message)
-
-
+                ' line of the error
+                MsgBox(ex.StackTrace)
             End Try
         End Using
 
@@ -156,12 +155,13 @@ Public Class EmployeeRepository
         Return Emps
     End Function
     ' userRepo.SearchUsers
-    Public Function SearchEmps(searchValue As String) As List(Of Users)
-        Dim Emps As New List(Of Users)()
+    Public Function SearchEmps(searchValue As String) As List(Of Employee)
+        Dim Emps As New List(Of Employee)()
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
                 Dim query As String = "SELECT * FROM Employee WHERE ID LIKE @searchValue OR FirstName LIKE @searchValue OR LastName LIKE @searchValue OR Department LIKE @searchValue"
+                MsgBox(query)
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@searchValue", "%" & searchValue & "%")
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
@@ -184,6 +184,7 @@ Public Class EmployeeRepository
                     End Using
                 End Using
             Catch ex As Exception
+                MsgBox(ex.Message)
             End Try
         End Using
         Return Emps
