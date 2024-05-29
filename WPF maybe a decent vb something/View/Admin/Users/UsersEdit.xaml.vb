@@ -2,11 +2,13 @@
 
 Public Class UsersEdit
     Private _selectedUser As Users
+    Private _contentGrid As Grid
 
 
-    Public Sub New(selectedUser As Users)
+    Public Sub New(selectedUser As Users, contentGrid As Grid)
 
         _selectedUser = selectedUser
+        _contentGrid = contentGrid
 
         InitializeComponent()
         UsernameTextBox.Text = selectedUser.Username
@@ -31,6 +33,10 @@ Public Class UsersEdit
 
         If success Then
             MessageBox.Show("User updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information)
+            Dim userView As New UsersView(_contentGrid)
+            _contentGrid.Children.Clear()
+            _contentGrid.Children.Add(userView)
+
         Else
             MessageBox.Show("Failed to update user. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error)
         End If

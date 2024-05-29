@@ -121,7 +121,7 @@ Public Class EmployeeRepository
                 conn.Open()
                 Dim query As String = "SELECT * FROM Employee"
                 Using cmd As New MySqlCommand(query, conn)
-                    MsgBox(cmd)
+
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
 
