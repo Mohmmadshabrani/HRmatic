@@ -141,7 +141,6 @@
                                         <fa:IconImage Icon="ban" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                     <TextBlock Text="{Binding Status}" 
-                                               Background="{StaticResource border-primary}"
                                                Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=NotPending}"
                                                Padding="5"/>
                                 </StackPanel>
