@@ -1,6 +1,4 @@
-﻿Imports System.Collections.ObjectModel
-
-Public Class EmployeeDGV
+﻿Public Class EmployeeDGV
     Private _contentGrid As Grid
 
     Public Sub New()
