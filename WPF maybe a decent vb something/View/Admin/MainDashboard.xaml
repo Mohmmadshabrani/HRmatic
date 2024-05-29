@@ -76,7 +76,8 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color4}"
                                  IsChecked="False"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Command="{Binding ShowHomeViewCommand}"
+                                 Click="ShowReports">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="PieChart" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Reports" Style="{StaticResource menuButtonText}"/>

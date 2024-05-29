@@ -73,6 +73,11 @@ Public Class MainDashboard
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(employeeView)
     End Sub
-
+    'ShowReports
+    Private Sub ShowReports(sender As Object, e As RoutedEventArgs)
+        Dim reportsView As New reports()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(reportsView)
+    End Sub
 
 End Class
