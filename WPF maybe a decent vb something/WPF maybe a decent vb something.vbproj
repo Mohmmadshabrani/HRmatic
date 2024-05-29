@@ -130,6 +130,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\Employee.vb" />
     <Compile Include="Model\Requests.vb" />
+    <Compile Include="Model\StatusToVisibilityConverter.vb" />
     <Compile Include="Model\StringToVisibilityConverter.vb" />
     <Compile Include="Model\Users.vb" />
     <Compile Include="Model\ViewModel.vb" />

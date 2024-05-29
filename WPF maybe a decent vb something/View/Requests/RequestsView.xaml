@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              d:DesignHeight="450" d:DesignWidth="800">
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -110,7 +111,7 @@
                             
                         <DataGridTextColumn 
                             Header="Type"
-                            Binding="{Binding type}" 
+                            Binding="{Binding Type}" 
                             IsReadOnly="True"/>
                         <DataGridTextColumn 
                             Header="Date"
@@ -120,29 +121,32 @@
                             Header="Time"
                             Binding="{Binding Time}" 
                             IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Actions" IsReadOnly="True">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource gridButton}" 
-                                                Background="{StaticResource success}" 
-                                                Click="ApproveBtn_Click"
-                                                Margin="0,0,5,0"
-                                                >
-                                            <fa:IconImage Icon="check" Style="{StaticResource gridButtonIcon}" />
-                                        </Button>
-                                        <Button Style="{StaticResource gridButton}" 
-                                                Click="DenyBtn_Click"
-                                                Margin="0,0,5,0"
-                                                Background="{StaticResource danger}">
-                                            <fa:IconImage Icon="ban" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                    </DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Actions" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridButton}" 
+                        Background="{StaticResource success}" 
+                        Click="ApproveBtn_Click"
+                        Margin="0,0,5,0"
+                        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pendding}">
+                                        <fa:IconImage Icon="check" Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                    <Button Style="{StaticResource gridButton}" 
+                        Click="DenyBtn_Click"
+                        Margin="0,0,5,0"
+                        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pendding}">
+                                        <fa:IconImage Icon="ban" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                    <TextBlock Text="{Binding Status}" 
+                           Background="{StaticResource pillShapeBackground}"
+                           Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=NotPending}"
+                           Padding="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
                 </DataGrid>
             </Border>
         </Grid>
