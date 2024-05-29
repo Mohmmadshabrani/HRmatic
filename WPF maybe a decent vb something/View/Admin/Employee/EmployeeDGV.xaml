@@ -193,6 +193,186 @@
             </DataGrid>
 
         </Border>
+            </Grid>
+            <Border Grid.Row="1"
+>>>>>>>>> Temporary merge branch 2
+                Background="#002e52"
+                CornerRadius="10" 
+                Padding="10">
+
+<<<<<<<<< Temporary merge branch 1
+            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"  
+                     CellStyle="{DynamicResource DataGridCellStyle1}" 
+                     x:Name="employeesDataGrid" 
+                                          AutoGenerateColumns="False"
+                     Style="{DynamicResource DataGridStyle1}"
+                      >
+                <DataGrid.Resources>
+                    <!-- Define CheckBoxStyle1 -->
+                    <Style x:Key="CheckBoxStyle1" TargetType="CheckBox">
+                        <!-- Define CheckBox style properties -->
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" 
+                        IsReadOnly="True" 
+                        CanUserResize="False" 
+                        Width="Auto" 
+                        Binding="{Binding ID}"/>
+                    <DataGridTemplateColumn Header="Employee Name" 
+                            IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding firstName}" />
+                                    <TextBlock Text="{Binding lastName}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn 
+                            Header="Department"
+                            Binding="{Binding Department}"
+                            IsReadOnly="True"/>
+                    <DataGridTextColumn 
+                            Header="Salary"
+                            Binding="{Binding Salary}" 
+                            IsReadOnly="True"/>
+                    <DataGridTextColumn 
+                            Header="Date Hired"
+                            Binding="{Binding DateHired}" 
+                            IsReadOnly="True"/>
+
+                    <DataGridTemplateColumn Header="Acttions" 
+                       IsReadOnly="True" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridButton}"
+                                            Click="EditButton_Click"
+                                            Background="{StaticResource info}"
+                                            Margin="0 , 0 , 2 , 0">
+                                        <fa:IconImage Icon="MagnifyingGlass" Style="{StaticResource gridButtonIcon}"
+/>
+                                    </Button>
+                                    <Button Style="{StaticResource gridButton}"
+                                            Click="EditButton_Click"
+                                            Background="{StaticResource warning}"
+                                            >
+                                        <fa:IconImage Icon="pen" Style="{StaticResource gridButtonIcon}"
+/>
+                                    </Button>
+                                    <Button Margin="5 0 0 0"
+                                            Background="{StaticResource danger}"
+                                            Click="DeleteButton_Click"
+                       Style="{StaticResource gridButton}">
+                                        <fa:IconImage Icon="trash" Style="{StaticResource gridButtonIcon}"/>
+
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Border>
+=========
+                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"  
+                     CellStyle="{DynamicResource DataGridCellStyle1}" 
+                     x:Name="membersDataGrid" 
+                                          AutoGenerateColumns="False"
+                     Style="{DynamicResource DataGridStyle1}"
+                      >
+                    <DataGrid.Resources>
+                        <!-- Define CheckBoxStyle1 -->
+                        <Style x:Key="CheckBoxStyle1" TargetType="CheckBox">
+                            <!-- Define CheckBox style properties -->
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Header="C" 
+                       CanUserResize="False" 
+                       Width="Auto" 
+                       ElementStyle="{StaticResource CheckBoxStyle1}">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+                        <DataGridTextColumn Header="ID" 
+                   IsReadOnly="True" 
+                   CanUserResize="False" 
+                   Width="Auto" 
+                   Binding="{Binding ID}"/>
+                        <DataGridTemplateColumn Header="Name" 
+                       IsReadOnly="True" 
+                       Width="*" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        
+                                        <TextBlock Text="{Binding FirstName}" 
+                          VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding LastName}" 
+VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Department" 
+                   Binding="{Binding Department}" 
+                   IsReadOnly="True" 
+                 />
+                        <DataGridTextColumn Header="Email" 
+                            Binding="{Binding Email}" 
+                            IsReadOnly="True" 
+                           />
+                        <DataGridTextColumn Header="Salary" 
+                   Binding="{Binding Salary}" 
+                   IsReadOnly="True" 
+                   />
+                        <DataGridTemplateColumn Header="Operations" 
+                       IsReadOnly="True" 
+                       >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal"
+                                                >
+                                        <Button Style="{StaticResource gridButton}"
+                                            
+                                            Background="{StaticResource info}"
+                                            Margin="0 , 0 , 2 , 0">
+                                            <fa:IconImage Icon="MagnifyingGlass" Style="{StaticResource gridButtonIcon}"
+/>
+                                        </Button>
+                                        <Button Style="{StaticResource gridButton}"
+                                         
+                                            Background="{StaticResource warning}"
+                                            >
+                                            <fa:IconImage Icon="pen" Style="{StaticResource gridButtonIcon}"
+/>
+                                        </Button>
+                                        <Button Margin="5 0 0 0"
+                                            Background="{StaticResource danger}"
+                                          
+                       Style="{StaticResource gridButton}">
+                                            <fa:IconImage Icon="trash" Style="{StaticResource gridButtonIcon}"/>
+
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Border>
+        </Grid>
+>>>>>>>>> Temporary merge branch 2
     </Grid>
 
 </UserControl>
