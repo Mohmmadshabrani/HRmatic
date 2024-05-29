@@ -7,8 +7,10 @@
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              d:DesignHeight="450" d:DesignWidth="800">
-
-        <Grid>
+    <UserControl.Resources>
+        <local:StatusToVisibilityConverter x:Key="StatusToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
@@ -126,22 +128,22 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Style="{StaticResource gridButton}" 
-                        Background="{StaticResource success}" 
-                        Click="ApproveBtn_Click"
-                        Margin="0,0,5,0"
-                        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pendding}">
+                                            Background="{StaticResource success}" 
+                                            Click="ApproveBtn_Click"
+                                            Margin="0,0,5,0"
+                                            Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pendding}">
                                         <fa:IconImage Icon="check" Style="{StaticResource gridButtonIcon}" />
                                     </Button>
                                     <Button Style="{StaticResource gridButton}" 
-                        Click="DenyBtn_Click"
-                        Margin="0,0,5,0"
-                        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pendding}">
+                                                    Click="DenyBtn_Click"
+                                                    Margin="0,0,5,0"
+                                                    Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pendding}">
                                         <fa:IconImage Icon="ban" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                     <TextBlock Text="{Binding Status}" 
-                           Background="{StaticResource pillShapeBackground}"
-                           Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=NotPending}"
-                           Padding="5"/>
+                                               Background="{StaticResource border-primary}"
+                                               Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=NotPending}"
+                                               Padding="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
