@@ -26,7 +26,7 @@
             txtError.Text = "Invalid username or password."
             txtError.Visibility = Visibility.Visible
         ElseIf user.isAdmin() Then
-            Dim MainDashboard = New MainDashboard
+            Dim MainDashboard = New MainDashboard()
             MainDashboard.Show()
             Me.Close()
         Else

@@ -51,6 +51,7 @@
                         <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color3}"
                                  IsChecked="False"
+                                     Click="ShowRequest"
                                  Command="{Binding ShowHomeViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="circleExclamation" Style="{StaticResource menuButtonIcon}"/>

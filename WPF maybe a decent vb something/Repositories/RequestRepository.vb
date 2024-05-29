@@ -12,7 +12,7 @@ Public Class RequestRepository
         Using conn As New MySqlConnection(connectionString)
             Try
                 conn.Open()
-                Dim query As String = "INSERT INTO Requests(EmpID, Type, Status, Time, Reason) VALUES(@EmployeeID, @Type, @Status, @Time, @Reason)"
+                Dim query As String = "INSERT INTO requests(EmpID, Type, Status, Time, Reason) VALUES(@EmployeeID, @Type, @Status, @Time, @Reason)"
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@EmpID", request.EmployeeID)
                     cmd.Parameters.AddWithValue("@Type", request.Type)
@@ -23,7 +23,7 @@ Public Class RequestRepository
                 End Using
                 Return True
             Catch ex As Exception
-                Return False
+                MessageBox.Show(ex.Message)
             End Try
         End Using
         Return False

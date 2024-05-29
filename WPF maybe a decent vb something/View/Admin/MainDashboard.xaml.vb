@@ -3,11 +3,12 @@ Imports System.Runtime.InteropServices
 Imports System.Windows.Interop
 
 Public Class MainDashboard
-
+    Private userId As Integer
     Public Sub New()
         InitializeComponent()
         Dim dashboardView As New DashboardView(ContentGrid)
         ContentGrid.Children.Add(dashboardView)
+        Me.userId = userId
     End Sub
 
 

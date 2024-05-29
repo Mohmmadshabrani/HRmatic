@@ -167,6 +167,9 @@
     <Compile Include="View\Employee\EmpDashboard.xaml.vb">
       <DependentUpon>EmpDashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Employee\RequestEmployee.xaml.vb">
+      <DependentUpon>RequestEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Employee\TimerEmp.xaml.vb">
       <DependentUpon>TimerEmp.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Employee\EmpDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Employee\RequestEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

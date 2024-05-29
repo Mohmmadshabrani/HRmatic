@@ -37,6 +37,12 @@ Public Class EmpDashboard
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(TimerEmp)
     End Sub
+    Private Sub ShowRequest(sender As Object, e As RoutedEventArgs)
+        Dim RequestEmployee As New RequestEmployee(userId)
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(RequestEmployee)
+    End Sub
+
 
 
 

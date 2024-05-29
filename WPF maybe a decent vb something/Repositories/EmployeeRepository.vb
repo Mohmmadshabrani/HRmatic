@@ -186,5 +186,26 @@ Public Class EmployeeRepository
         End Using
         Return Emps
     End Function
+    ' save to requests table userid , date, type, reason
+    Public Function CreateRequest(userId As Integer, reason As String, type As String, dateOfRequest As DateTime) As Boolean
+        Using conn As New MySqlConnection(connectionString)
+            Try
+                conn.Open()
+                Dim query As String = "INSERT INTO requests(UserId, Reason, Type, DateOfRequest) VALUES(@UserId, @Reason, @Type, @DateOfRequest)"
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@UserId", userId)
+                    cmd.Parameters.AddWithValue("@Reason", reason)
+                    cmd.Parameters.AddWithValue("@Type", type)
+                    cmd.Parameters.AddWithValue("@DateOfRequest", dateOfRequest)
+                    cmd.ExecuteNonQuery()
+                End Using
+                Return True
+            Catch ex As Exception
+                ' Handle exceptions here, e.g., log the error
+                Return False
+            End Try
+        End Using
+    End Function
+
 
 End Class
