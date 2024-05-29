@@ -115,39 +115,42 @@ Public Class EmployeeRepository
         Dim Emps As New List(Of Employee)()
         Using conn As New MySqlConnection(connectionString)
             Try
-
                 conn.Open()
                 Dim query As String = "SELECT * FROM Employee"
                 Using cmd As New MySqlCommand(query, conn)
                     Using reader As MySqlDataReader = cmd.ExecuteReader()
                         While reader.Read()
                             Dim user As Users = Users.GetUser(reader("ID"))
-                            Emps.Add(New Employee() With {
-                                .EmployeeID = reader("ID"),
-                                .FirstName = reader("FirstName").ToString(),
-                                .LastName = reader("LastName").ToString(),
-                                .Salary = Convert.ToDecimal(reader("Salary")),
-                                .Department = reader("Department").ToString(),
-                                .DateHired = Convert.ToDateTime(reader("DateHired")),
+                            If user IsNot Nothing Then
+                                Dim employee As New Employee() With {
+                                .EmployeeID = If(IsDBNull(reader("ID")), 0, Convert.ToInt32(reader("ID"))),
+                                .FirstName = If(IsDBNull(reader("FirstName")), String.Empty, reader("FirstName").ToString()),
+                                .LastName = If(IsDBNull(reader("LastName")), String.Empty, reader("LastName").ToString()),
+                                .Salary = If(IsDBNull(reader("Salary")), 0D, Convert.ToDecimal(reader("Salary"))),
+                                .Department = If(IsDBNull(reader("Department")), String.Empty, reader("Department").ToString()),
+                                .DateHired = If(IsDBNull(reader("DateHired")), DateTime.MinValue, Convert.ToDateTime(reader("DateHired"))),
                                 .DateResigned = If(IsDBNull(reader("DateResigned")), Nothing, Convert.ToDateTime(reader("DateResigned"))),
-                                .Username = user.Username,
-                                .Email = user.Email,
+                                .Username = If(user.Username Is Nothing, String.Empty, user.Username),
+                                .Email = If(user.Email Is Nothing, String.Empty, user.Email),
                                 .IsActive = user.IsActive,
-                                .Role = user.Role
-                            })
+                                .Role = If(user.Role Is Nothing, String.Empty, user.Role)
+                            }
+                                Emps.Add(employee)
+                            Else
+
+                            End If
                         End While
                     End Using
                 End Using
             Catch ex As Exception
                 MsgBox(ex.Message)
-                ' line of the error
+                ' Line of the error
                 MsgBox(ex.StackTrace)
             End Try
         End Using
-
-
         Return Emps
     End Function
+
     ' userRepo.SearchUsers
     Public Function SearchEmps(searchValue As String) As List(Of Employee)
         Dim Emps As New List(Of Employee)()

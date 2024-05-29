@@ -1,0 +1,324 @@
+﻿<UserControl x:Class="reports"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_maybe_a_decent_vb_something"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Height="526" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="4" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="9"/>
+            </Grid.ColumnDefinitions>
+
+            <Border
+            Grid.Column="1"
+            Background="{StaticResource pal-primary}"
+            Height="100"
+            VerticalAlignment="Center"
+            Margin="0,0,10,0"
+            HorizontalAlignment="Stretch"
+            CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="MVP OF THE MONTH"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1"
+                    Grid.Column="0"
+                    Foreground="White"
+                    x:Name="txtNumberOfEmployees"
+                    Text="20 Employees" FontSize="16"
+                    FontWeight="Bold"
+                    Margin="20,0"
+                    HorizontalAlignment="left"
+                    VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <Border 
+            Grid.Column="2"
+            Background="{StaticResource pal-info}"
+            Height="100"
+            VerticalAlignment="Center"
+            Margin="0,0,10,0"
+            HorizontalAlignment="Stretch"
+            CornerRadius="10">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Number of Requests"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                    <TextBlock 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Foreground="White"
+                    x:Name="txtNumberOfRequests"
+                    Text="12 Requests" FontSize="16"
+                    FontWeight="Bold"
+                    Margin="20,0"
+                    HorizontalAlignment="left"
+                    VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <Border
+            Grid.Column="3"
+            Background="{StaticResource pal-success}"
+            Height="100"
+            Margin="0,0,10,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Employee Today"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                    <TextBlock 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Foreground="White"
+                    x:Name="txtNumberOnLeave"
+                    Text="2 Employees" FontSize="16"
+                    FontWeight="Bold"
+                    HorizontalAlignment="left"
+                    Margin="20,0"
+                    VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <Border
+            Background="{StaticResource pal-danger}"
+            Height="100"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Stretch"
+            Margin="0,0,10,0"
+            CornerRadius="10" 
+            Grid.Column="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Currently Working"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1"
+                    Grid.Column="0"
+                    Foreground="White"
+                    x:Name="txtCurrentlyWorking"
+                    Text="5 Empylee" FontSize="16"
+                    FontWeight="Bold"
+                    HorizontalAlignment="left"
+                    Margin="20,0"
+                    VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid
+        Grid.Row="1"
+        Grid.Column="0"
+        Grid.ColumnSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <Border 
+            Grid.Column="1"
+            CornerRadius="10">
+                <Grid>
+                    <Border Background="#000" CornerRadius="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Text="List of Employees"
+                            FontWeight="Bold"
+                            FontSize="16"
+                            Foreground="Black"
+                            Background="{StaticResource pal-secondary}"
+                            HorizontalAlignment="Stretch"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center" />
+                            <ListBox 
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            x:Name="lstEmployees"
+                            Background="White"
+                            BorderBrush="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center">
+                                <ListBoxItem Content="Employee 1"/>
+                                <ListBoxItem Content="Employee 2"/>
+                                <ListBoxItem Content="Employee 3"/>
+                                <ListBoxItem Content="Employee 4"/>
+                                <ListBoxItem Content="Employee 5"/>
+                                <ListBoxItem Content="Employee 6"/>
+                                <ListBoxItem Content="Employee 7"/>
+                                <ListBoxItem Content="Employee 8"/>
+                                <ListBoxItem Content="Employee 9"/>
+                                <ListBoxItem Content="Employee 10"/>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border 
+            Grid.Column="3"
+            CornerRadius="10">
+                <Grid>
+                    <Border Background="#000">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Text="List of Top Employees"
+                            FontWeight="Bold"
+                            FontSize="16"
+                            Foreground="Black"
+                            Background="{StaticResource pal-secondary}"
+                            HorizontalAlignment="Stretch"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center" />
+                            <ListBox 
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            x:Name="lstTopEmployees"
+                            Background="White"
+                            BorderBrush="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center">
+                                <ListBoxItem Content="Employee 1"/>
+                                <ListBoxItem Content="Employee 2"/>
+                                <ListBoxItem Content="Employee 3"/>
+                                <ListBoxItem Content="Employee 4"/>
+                                <ListBoxItem Content="Employee 5"/>
+                                <ListBoxItem Content="Employee 6"/>
+                                <ListBoxItem Content="Employee 7"/>
+                                <ListBoxItem Content="Employee 8"/>
+                                <ListBoxItem Content="Employee 9"/>
+                                <ListBoxItem Content="Employee 10"/>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.ColumnSpan="4" Grid.Row="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="9"/>
+            </Grid.ColumnDefinitions>
+
+            <Button
+            Grid.Column="2"
+            x:Name="PrintReports"
+            BorderThickness="0"
+            Content="PrintReports"
+            Style="{StaticResource pillButtonStyle}"
+            />
+
+            <Button
+            Grid.Column="3"
+            x:Name="CheckEmployees"
+            BorderThickness="0"
+            Content="CheckEmployees"
+            Style="{StaticResource pillButtonStyle}"
+            />
+        </Grid>
+    </Grid>
+
+</UserControl>

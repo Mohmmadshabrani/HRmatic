@@ -16,7 +16,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="120"/>
-
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal"
@@ -36,8 +35,7 @@
                          BorderBrush="{StaticResource plainTextColor3}"
                          BorderThickness="0,0,0,1"                             
                          VerticalContentAlignment="Center"
-                         Margin="5,5,0,0"
-                        />
+                         Margin="5,5,0,0"/>
             </StackPanel>
             <Button
                      Command="{Binding LoginCommand}"                            
@@ -47,8 +45,10 @@
                      Cursor="Hand"
                      BorderThickness="0"
                      Foreground="White"
-                    VerticalAlignment="Center"
-                    Click="SearchButton_Click" Grid.ColumnSpan="2" Margin="528,0,2,0">
+                     VerticalAlignment="Center"
+                     Click="SearchButton_Click" 
+                     Grid.ColumnSpan="2" 
+                     Margin="528,0,2,0">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#002e52"/>
@@ -56,10 +56,10 @@
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
                                     <Border Height="30"
-                                         CornerRadius="15"
-                                         Background="{TemplateBinding Background}">
+                                            CornerRadius="15"
+                                            Background="{TemplateBinding Background}">
                                         <ContentPresenter VerticalAlignment="Center"
-                                                           HorizontalAlignment="Center"/>
+                                                          HorizontalAlignment="Center"/>
                                     </Border>
                                 </ControlTemplate>
                             </Setter.Value>
@@ -74,15 +74,15 @@
             </Button>
             <Button Grid.Column="2"
                     x:Name="btnAdd"
-                            Command="{Binding LoginCommand}"                            
-                            Content="Add User"                            
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            BorderThickness="0"
-                            Foreground="White"
+                    Command="{Binding LoginCommand}"                            
+                    Content="Add User"                            
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    BorderThickness="0"
+                    Foreground="White"
                     VerticalAlignment="Center"
-                    Click="ShowEmployeeAddView" >
+                    Click="ShowEmployeeAddView">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="{StaticResource success}"/>
@@ -90,10 +90,10 @@
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
                                     <Border Height="30"
-                                                    CornerRadius="15"
-                                                    Background="{TemplateBinding Background}">
+                                            CornerRadius="15"
+                                            Background="{TemplateBinding Background}">
                                         <ContentPresenter VerticalAlignment="Center"
-                                                                      HorizontalAlignment="Center"/>
+                                                          HorizontalAlignment="Center"/>
                                     </Border>
                                 </ControlTemplate>
                             </Setter.Value>
@@ -111,13 +111,11 @@
                 Background="#002e52"
                 CornerRadius="10" 
                 Padding="10">
-
             <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"  
-                     CellStyle="{DynamicResource DataGridCellStyle1}" 
-                     x:Name="employeesDataGrid" 
-                                          AutoGenerateColumns="False"
-                     Style="{DynamicResource DataGridStyle1}"
-                      >
+                      CellStyle="{DynamicResource DataGridCellStyle1}" 
+                      x:Name="employeesDataGrid" 
+                      AutoGenerateColumns="False"
+                      Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Resources>
                     <!-- Define CheckBoxStyle1 -->
                     <Style x:Key="CheckBoxStyle1" TargetType="CheckBox">
@@ -126,10 +124,11 @@
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" 
-                        IsReadOnly="True" 
-                        CanUserResize="False" 
-                        Width="Auto" 
-                        Binding="{Binding ID}"/>
+                                        IsReadOnly="True" 
+                                        CanUserResize="False" 
+                                        Width="Auto" 
+                                        Binding="{Binding ID}"/>
+
                     <DataGridTemplateColumn Header="Employee Name" IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -144,46 +143,36 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-
-
-                    <DataGridTextColumn 
-                            Header="Department"
-                            Binding="{Binding Department}"
-                            IsReadOnly="True"/>
-                    <DataGridTextColumn 
-                            Header="Salary"
-                            Binding="{Binding Salary}" 
-                            IsReadOnly="True"/>
-                    <DataGridTextColumn 
-                            Header="Date Hired"
-                            Binding="{Binding DateHired}" 
-                            IsReadOnly="True"/>
-
+                    <DataGridTextColumn Header="Department"
+                                        Binding="{Binding Department}"
+                                        IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Salary"
+                                        Binding="{Binding Salary}" 
+                                        IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Date Hired"
+                                        Binding="{Binding DateHired}" 
+                                        IsReadOnly="True"/>
                     <DataGridTemplateColumn Header="Actions" 
-                       IsReadOnly="True" >
+                                            IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Style="{StaticResource gridButton}"
-                                            Click="EditButton_Click"
+                                            
                                             Background="{StaticResource info}"
                                             Margin="0 , 0 , 2 , 0">
-                                        <fa:IconImage Icon="MagnifyingGlass" Style="{StaticResource gridButtonIcon}"
-/>
+                                        <fa:IconImage Icon="MagnifyingGlass" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                     <Button Style="{StaticResource gridButton}"
-                                            Click="EditButton_Click"
-                                            Background="{StaticResource warning}"
-                                            >
-                                        <fa:IconImage Icon="pen" Style="{StaticResource gridButtonIcon}"
-/>
+                                         Click="EditButton_Click"
+                                            Background="{StaticResource warning}">
+                                        <fa:IconImage Icon="pen" Style="{StaticResource gridButtonIcon}"/>
                                     </Button>
                                     <Button Margin="5 0 0 0"
                                             Background="{StaticResource danger}"
-                                            Click="DeleteButton_Click"
+                                            Click="DeleteEmployee_Click"
                                             Style="{StaticResource gridButton}">
                                         <fa:IconImage Icon="trash" Style="{StaticResource gridButtonIcon}"/>
-
                                     </Button>
                                 </StackPanel>
                             </DataTemplate>
@@ -191,7 +180,6 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-
         </Border>
     </Grid>
 </UserControl>

@@ -51,6 +51,7 @@
                     <TextBlock 
                         Grid.Row="0"
                         Grid.Column="0"
+                        x:Name="Title"
                         Text="Number of Employees"
                         FontWeight="Bold"
                         FontSize="16"
@@ -221,23 +222,15 @@
                                 VerticalAlignment="Center" />
                             <ListBox 
                                 Grid.Row="1"
-                                Grid.Column="0"
                                 x:Name="lstEmployees"
                                 Background="White"
                                 BorderBrush="White"
                                 BorderThickness="0"
                                 HorizontalAlignment="Stretch"
-                                VerticalAlignment="Center">
-                                <ListBoxItem Content="Employee 1"/>
-                                <ListBoxItem Content="Employee 2"/>
-                                <ListBoxItem Content="Employee 3"/>
-                                <ListBoxItem Content="Employee 4"/>
-                                <ListBoxItem Content="Employee 5"/>
-                                <ListBoxItem Content="Employee 6"/>
-                                <ListBoxItem Content="Employee 7"/>
-                                <ListBoxItem Content="Employee 8"/>
-                                <ListBoxItem Content="Employee 9"/>
-                                <ListBoxItem Content="Employee 10"/>
+                                VerticalAlignment="Stretch"
+                                DisplayMemberPath="FirstName"
+                         >
+                             
                             </ListBox>
                         </Grid>
                     </Border>
@@ -274,17 +267,8 @@
                                 BorderBrush="White"
                                 BorderThickness="0"
                                 HorizontalAlignment="Stretch"
-                                VerticalAlignment="Center">
-                                <ListBoxItem Content="Employee 1"/>
-                                <ListBoxItem Content="Employee 2"/>
-                                <ListBoxItem Content="Employee 3"/>
-                                <ListBoxItem Content="Employee 4"/>
-                                <ListBoxItem Content="Employee 5"/>
-                                <ListBoxItem Content="Employee 6"/>
-                                <ListBoxItem Content="Employee 7"/>
-                                <ListBoxItem Content="Employee 8"/>
-                                <ListBoxItem Content="Employee 9"/>
-                                <ListBoxItem Content="Employee 10"/>
+                                  DisplayMemberPath="FirstName">
+                               
                             </ListBox>
                         </Grid>
                     </Border>
@@ -305,18 +289,20 @@
             </Grid.ColumnDefinitions>
 
             <Button
-                Grid.Column="1"
+                Grid.Column="2"
                 x:Name="btnAddEmp"
                 BorderThickness="0"
                 Content="Add Employee"
+                Width="Auto"
                 Style="{StaticResource pillButtonStyle}"
                 Click="AddEmp_Click"/>
             
             <Button
-                Grid.Column="2"
+                Grid.Column="3"
                 x:Name="btnlogOut"
                 BorderThickness="0"
                 Content="Logout"
+                   Width="Auto"
                 Style="{StaticResource pillButtonStyle}"
                 Click="Logout_Click"/>
         </Grid>

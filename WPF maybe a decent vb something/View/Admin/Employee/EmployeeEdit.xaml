@@ -4,12 +4,96 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_maybe_a_decent_vb_something"
-         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-  mc:Ignorable="d" 
-   
-  d:DesignHeight="450" d:DesignWidth="800"
-            >
-    <Grid>
-       
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             
+             mc:Ignorable="d" 
+               Height="360" Width="400">
+    <UserControl.Resources>
+        <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+    </UserControl.Resources>
+  
+
+    <Grid Margin="10">
+        <StackPanel Margin="0,0,0,72">
+            <TextBlock Text="Edit Employee" FontSize="20" FontWeight="Bold" Foreground="white" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <Grid Margin="0,0,0,10">
+                <TextBox x:Name="FirstName" />
+                <TextBlock Text="FirstName" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
+                           VerticalAlignment="Center" HorizontalAlignment="Left" 
+                           Visibility="{Binding Text, ElementName=FirstName, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="63*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="LastName" Grid.ColumnSpan="2" />
+                <TextBlock Text="LastName" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
+                           VerticalAlignment="Center" HorizontalAlignment="Left" 
+                           Visibility="{Binding Text, ElementName=LastName, Converter={StaticResource StringToVisibilityConverter}}"/>
+            </Grid>
+
+            <Grid Margin="0,0,0,10">
+                <TextBox x:Name="Department" />
+                <TextBlock Text="Department" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
+                           VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                Visibility="{Binding Text, ElementName=Salary, Converter={StaticResource StringToVisibilityConverter}}"/>
+
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <TextBox x:Name="Salary" />
+                <TextBlock Text="Salary" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
+                 VerticalAlignment="Center" HorizontalAlignment="Left" 
+                      Visibility="{Binding Text, ElementName=Salary, Converter={StaticResource StringToVisibilityConverter}}"/>
+
+            </Grid>
+
+            <Grid Margin="0,0,0,10">
+                <DatePicker x:Name="DateOfHired" />
+                <TextBlock Text="Date of Hired" 
+               Foreground="Gray" 
+               Margin="5,0,0,0" 
+               IsHitTestVisible="False" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center" 
+               />
+            </Grid>
+
+            <Grid Margin="0,0,0,10"/>
+            <Grid Margin="0,0,0,10"/>
+            <Button x:Name="EditUser"
+                       BorderThickness="0"
+                       Content="Add Employee"
+                       Foreground="White"
+                       FontSize="12"
+                       FontFamily="Montserrat"
+                       Cursor="Hand" 
+                    Click="EditUser_Click"
+                     RenderTransformOrigin="0.508,1.836">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="{StaticResource success}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource btn-bg-secondary}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="150" Height="40"
+                                       CornerRadius="20"
+                                       Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Grid Margin="0,0,0,5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

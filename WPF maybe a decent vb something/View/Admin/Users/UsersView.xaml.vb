@@ -17,7 +17,7 @@ Public Class UsersView
     End Sub
     ' add new user switch to EmoloyeeAdd
     Private Sub ShowEmployeeAddView(sender As Object, e As RoutedEventArgs)
-        Dim employeeAddView As New UsersAdd()
+        Dim employeeAddView As New UsersAdd(_contentGrid)
         Dim contentControl As New ContentControl()
 
         contentControl.Content = employeeAddView
@@ -39,7 +39,7 @@ Public Class UsersView
 
         If selectedUser IsNot Nothing Then
 
-            Dim editUserView As New UsersEdit(selectedUser)
+            Dim editUserView As New UsersEdit(selectedUser, _contentGrid)
             Dim contentControl As New ContentControl()
 
             contentControl.Content = editUserView

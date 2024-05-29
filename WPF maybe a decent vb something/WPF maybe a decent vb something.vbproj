@@ -140,6 +140,9 @@
     <Compile Include="View\Admin\DashboardView.xaml.vb">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\Report\Reports.xaml.vb">
+      <DependentUpon>Reports.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\Users\UsersAdd.xaml.vb">
       <DependentUpon>UsersAdd.xaml</DependentUpon>
     </Compile>
@@ -194,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin\DashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\Report\Reports.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

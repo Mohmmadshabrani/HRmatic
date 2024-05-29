@@ -6,7 +6,7 @@ Public Class MainDashboard
 
     Public Sub New()
         InitializeComponent()
-        Dim dashboardView As New DashboardView()
+        Dim dashboardView As New DashboardView(ContentGrid)
         ContentGrid.Children.Add(dashboardView)
     End Sub
 
@@ -34,7 +34,7 @@ Public Class MainDashboard
         Me.WindowState = WindowState.Minimized
     End Sub
     Private Sub ShowHomeView(sender As Object, e As RoutedEventArgs)
-        Dim homeView As New DashboardView()
+        Dim homeView As New DashboardView(ContentGrid)
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(homeView)
     End Sub
@@ -51,7 +51,7 @@ Public Class MainDashboard
     End Sub
 
     Private Sub ShowDashboardView(sender As Object, e As RoutedEventArgs)
-        Dim dashboardView As New DashboardView()
+        Dim dashboardView As New DashboardView(ContentGrid)
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(dashboardView)
     End Sub
@@ -73,6 +73,11 @@ Public Class MainDashboard
         ContentGrid.Children.Clear()
         ContentGrid.Children.Add(employeeView)
     End Sub
-
+    'ShowReports
+    Private Sub ShowReports(sender As Object, e As RoutedEventArgs)
+        Dim reportsView As New reports()
+        ContentGrid.Children.Clear()
+        ContentGrid.Children.Add(reportsView)
+    End Sub
 
 End Class

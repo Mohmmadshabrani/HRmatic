@@ -4,9 +4,10 @@ Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class UsersAdd
     Private ReadOnly userRepository As New UserRepository()
-
-    Public Sub New()
+    Private _contentGrid As Grid
+    Public Sub New(contentGrid As Grid)
         InitializeComponent()
+        _contentGrid = contentGrid
     End Sub
 
     Private Sub AddUser_Click(sender As Object, e As RoutedEventArgs)
@@ -15,6 +16,11 @@ Public Class UsersAdd
         Dim password As String = PasswordTextBox.Text
         Dim email As String = EmailTextBox.Text
         Dim isActive As Boolean = IsActiveCheckBox.IsChecked.GetValueOrDefault()
+        'check textboxes for empty values
+        If String.IsNullOrEmpty(username) Or String.IsNullOrEmpty(password) Or String.IsNullOrEmpty(email) Then
+            MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error)
+            Return
+        End If
 
         Dim newUser As New Users() With {
             .Username = username,
@@ -28,7 +34,9 @@ Public Class UsersAdd
 
         If success Then
             MessageBox.Show("User added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information)
-
+            Dim employeeView As New UsersView(_contentGrid)
+            _contentGrid.Children.Clear()
+            _contentGrid.Children.Add(employeeView)
 
         Else
             MessageBox.Show("Failed to add user. Please try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error)

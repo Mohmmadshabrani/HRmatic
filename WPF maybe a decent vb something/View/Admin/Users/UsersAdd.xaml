@@ -23,6 +23,7 @@
             </Grid>
 
             <Grid Margin="0,0,0,10">
+  
                 <TextBox x:Name="PasswordTextBox" />
                 <TextBlock Text="Password" Foreground="Gray" Margin="5,0,0,0" IsHitTestVisible="False" 
                            VerticalAlignment="Center" HorizontalAlignment="Left" 
